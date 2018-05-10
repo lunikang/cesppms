@@ -1,0 +1,157 @@
+.detailBox {
+    width:320px;
+    border:1px solid #bbb;
+    margin:50px;
+    height: 35%;
+
+}
+
+.cmntlist{
+    height: 40%;
+    overflow-y: scroll;
+    max-height:200px;
+}
+
+.titleBox {
+    background-color:#fdfdfd;
+    padding:10px;
+}
+.titleBox label{
+  color:#444;
+  margin:0;
+  display:inline-block;
+}
+
+.commentBox {
+    padding:10px;
+    border-top:1px dotted #bbb;
+  
+}
+.commentBox .form-group:first-child, .actionBox .form-group:first-child {
+    width:90%;
+    margin: auto;
+    
+}
+.commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
+    width:90%;
+    margin: auto;
+}
+.actionBox .form-group * {
+    width:100%;
+}
+.taskDescription {
+    margin-top:10px 0;
+}
+.commentList {
+    padding:0;
+    list-style:none;
+    /*max-height:200px;*/
+    max-width: 300px;
+    overflow:auto;
+}
+.commentList li {
+    margin:0;
+    margin-top:10px;
+}
+.commentList li > div {
+    display:table-cell;
+}
+
+.commentText p {
+    margin:0;
+}
+.sub-text {
+    color:#aaa;
+    font-family:verdana;
+    font-size:11px;
+}
+.actionBox {
+    border-top:1px dotted #bbb;
+    padding:10px;
+
+}
+
+.h5{
+    padding: 3px;
+    color: #0033FF;
+    font-weight: bold;
+    padding-right: 10px !important;
+}
+
+
+
+.form-inline{
+    height: 100px;
+}
+
+.boxsize{
+    min-height:55px;
+    resize: none;
+}
+
+.coms_id{
+    display: hidden;
+}
+
+
+/*FOR COMMENTS SECTION Minimize/Maximize*/
+.widget-content {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #000;
+}
+.btn-minimize {
+    width: 150px;
+    height: 39.5px;
+    padding: 5px;
+    /*background-color: #FF6961;*/
+    background: none;
+    border: 2px solid #2ECC71;
+    color: #ecf0f1;
+    box-shadow: none;
+}
+
+.btn-minimize.btn-plus {
+    background-color: #bbb;
+}
+
+.glyphicon-remove {
+    font-size: 10px;
+}
+
+#score_results{
+    width:50% ; 
+    float: left ;
+    border: 5px solid white;
+}
+
+.remarks_bg{
+    background: #d3d3d3;
+}
+
+.btn-log-trail{
+    margin-right: 30px;
+    
+}
+
+.btn-log {
+    width: 150px;
+    height: 39.5px;
+    padding: 5px;
+    background: none;
+    border: 2px solid #F9690E;
+    color: #ffffff !important;
+    box-shadow: none;
+}
+
+#record-trail {
+    height: 300px;
+    max-height: 300px;
+    overflow-y: scroll;
+    background: ivory;
+}
+
+
+
+
+

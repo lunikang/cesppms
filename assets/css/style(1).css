@@ -1,0 +1,245 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans);
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+
+/* -----------------
+      Global
+------------------- */
+* {
+    border-radius: 0 !important;
+}
+html, body {
+  /*background: #ECF0F1;*/
+  background-image: url('../img/background1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+}
+.page-header {
+    color: #34495e;
+    letter-spacing: 4px;
+    text-align: left;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    padding-top: 10px;
+}
+.table {
+    background: #FFF;
+}
+
+/* -----------------
+  Sidebar and Top Nav
+------------------- */
+.name,
+.designation {
+    color: #FFF;
+}
+.toggle-style{
+    margin-left: 1px;
+}
+.logo {
+  height: 5.3em;
+  width: 5.3em;
+  float: left;
+  margin-top: -0.2em !important;
+  margin: 0.2em;
+}
+#sidebar-wrapper {
+  background-image: url('../img/navtop.png');
+  /*background-color: #195826;*/
+}
+.sidebar-nav > .user-info {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.nav.sidebar-nav > li > a:focus,
+.nav.sidebar-nav > li > a:hover {
+    color: #D91E18;
+    background-color: #F4D03F; 
+}
+.navbar-top .navbar {
+    /*background-color: #195826;*/
+    background-image: url('../img/navtop.png');
+    border: none;
+}
+.navbar-header img {
+    float: left;
+    padding-left: 30px;
+}
+.navbar-brand {
+    margin-top: -23px;
+    margin-left: -5px;
+    margin-right: 15px;
+}
+.sidebar-toggle {
+    float: left;
+    margin-top: 5px;
+    padding-left: 25px;
+    padding-right: 10px;
+}
+.sidebar-toggle .btn {
+    background: none;
+    padding: 8px 13px;
+    border: 2px solid #2ECC71;
+    color: #ecf0f1;
+}
+.btn-header {
+    margin-top: 5px;
+}
+.btn-header .btn-success {
+    background: none;
+    padding: 8px 22px;
+}
+.btn-header .btn-success {
+    border: 2px solid #2ECC71;
+    color: #ecf0f1;
+}
+
+.btn-header .btn-success .outline:active,
+.btn-header .btn-success .outline.active {
+    border-color: #1BA39C;
+    color: #1BA39C;
+    box-shadow: none;
+}
+.nav-tabs{
+  background-color: rgba(218, 223, 225, 0.8);
+}
+.nav.nav-tabs > li > a {
+  border-left: 0.5px solid #FFFFFF;
+  border-right: 0.5px solid #FFFFFF;
+}
+.nav.nav-tabs > li > a:hover {
+    color: #F7CA18;
+    background-color: #1E824C;
+}
+.nav.nav-tabs > li.active > a,
+.nav.nav-tabs > li.active > a:hover,
+.nav.nav-tabs > li.active > a:focus {
+    color: #ecf0f1;
+    background-color: #3498db;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+.tab-content {
+    border: 1px solid #ddd;
+    border-width: 0 1px 1px; /* Removes the top border */
+    padding: 10px;
+    background-color: rgba(242, 241, 239, 0.5);
+}
+
+.navbar-fixed-top .navbar-brand {
+    /*color: #F4D03F;*/
+    color: #FFFFFF;
+}
+
+/* -----------------
+    Lists Tables
+------------------- */
+
+.lists-table thead,
+.lists-table thead th,
+.lists-table tfoot {
+    text-align: center;
+    background-color: #ecf0f1;
+}
+.lists-table td {
+    text-align: center;
+    text-overflow: ellipsis;
+}
+
+/* -----------------
+    Fill Out Form
+------------------- */
+textarea {
+  resize: vertical; /* user can resize vertically, but width is fixed */
+}
+
+/* -----------------
+ View Proposal Brand
+------------------- */
+.proposal-brand {
+  margin-top: 50px;
+  text-align: center;
+}
+.proposal-brand img,
+.proposal-brand .brand-text {
+  display: inline-block;
+}
+.proposal-brand img {
+  height: 4em;
+  width: 4em;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: -25px;
+}
+.proposal-brand h4 {
+  line-height: 10px;
+}
+
+
+/* -----------------
+  View Proposal Header
+------------------- */
+.proposal-header {
+  text-align: center;
+}
+.proposal-header h3 {
+  font-style: italic;
+  line-height: 5px;
+  padding-bottom: 15px;
+}
+.proposal-header h1 {
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+
+/* -----------------
+View Proposal Sections
+------------------- */
+.proposal-sections {
+  text-align: justify;
+  margin-top: 30px;
+}
+.proposal-sections h4 {
+  color: #FFFFFF;
+  background: #000000;
+  line-height: 30px;
+}
+.proposal-sections table,
+.proposal-sections th,
+.proposal-sections td {
+  border: 1px solid;
+}
+.proposal-sections table {
+  width: 100%;
+  text-align: center;
+}
+.proposal-sections th {
+  text-align: center;
+  line-height: 40px;
+}
+.proposal-sections td {
+  line-height: 25px;
+}
+.proposal-sections .sub-section {
+  text-indent: 10px;
+}
+.proposal-sections .sub-section h5 {
+  line-height: 25px;
+  color: #FFFFFF;
+  background: #6C7A89;
+}
+.proposal-sections .sub-section h5 em {
+  font-size: 12px;
+}
+.proposal-sections .sub-section .options {
+  text-indent: 40px;
+}
+.proposal-sections .sub-section .options ul {
+  list-style-image: square;
+  list-style-position: inside;
+}

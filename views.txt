@@ -1,0 +1,4 @@
+CREATE OR REPLACE VIEW proposal_json_full_info AS
+SELECT user_account.user_id, user_account.department, proposal_json.proposal_json_format,proposal_json.proposal_id,proposal_json.status,proposal_json.form_type,proposal_json.noted_by_stat,proposal_json.noted_by_comments,user_account.office, user_account.organization,user_account.firstname,user_account.lastname,user_account.datetime_created,user_account.datetime_modified
+FROM proposal_json
+JOIN user_account ON user_account.user_id = proposal_json.user_id
