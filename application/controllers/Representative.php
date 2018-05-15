@@ -43,10 +43,21 @@ class Representative extends CI_Controller
 	{
 		if(isset($_SESSION['designation']) && $_SESSION['designation_fkid'] == 6)
 		{
+
+			$this->load->model('Proposal_A');
 		
 			$this->load->model('Proposal_AB');
+			$this->load->model('Proposal_B');	
+			$thi->load->model('Propsal_C');
+
+
+			$data['email']=$this->Proposal_A->getChairEmail($this->session->department,4);
 
 			$data['email']=$this->Proposal_AB->getChairEmail($this->session->department,4);
+
+			$data['email']=$this->Proposal_B->getChairEmail($this->session->department,4);
+
+			$data['email']=$this->Proposal_C->getChairEmail($this->session->department,4);
 
 			echo $data['email'];
 

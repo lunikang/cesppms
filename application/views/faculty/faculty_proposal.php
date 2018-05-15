@@ -86,7 +86,7 @@
 					for(var i = 0; i < dataJSON.length; i++)
 					{
 						if(dataJSON[i].form_type == 1) /*if form a and b*/
-							var link = "<a href="+base_url+"Representative/form_a_1?proposal_id="+dataJSON[i].proposal_id+">";
+							var link = "<a href="+base_url+"Faculty/form_a_1?proposal_id="+dataJSON[i].proposal_id+">";
 						else
 							var link = "<a href=#>";
 						dataRows.push([
@@ -121,7 +121,7 @@
 					{
 						if(dataJSON[i].form_type == 1) /*if form a and b*/
 						{
-							var link = "<a href="+base_url+"Representative/form_a_1?proposal_id="+dataJSON[i].proposal_id+">";
+							var link = "<a href="+base_url+"Faculty/form_a_1?proposal_id="+dataJSON[i].proposal_id+">";
 						}
 						else
 							var link = "<a href=#>";
@@ -158,7 +158,7 @@
 					for(var i = 0; i < dataJSON.length; i++)
 					{
 						if(dataJSON[i].form_type == 1) /*if form a and b*/
-							var link = "<a href="+base_url+"Representative/form_a_1?proposal_id="+dataJSON[i].proposal_id+">";
+							var link = "<a href="+base_url+"Faculty/form_a_1?proposal_id="+dataJSON[i].proposal_id+">";
 						else
 							var link = "<a href=#>";
 						dataRows.push([

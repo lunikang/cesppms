@@ -138,4 +138,21 @@ class Proposal_A extends CI_Model
 		$query = $this->db->insert('proposal_header', $this);
         return $query;
 	}
+
+	//Send Email to chair
+
+	public function getChairEmail($department, $fkid){
+
+		$condition = array('user_account.department' => $department, 'user_account.designation.fkid' => $fkid);
+
+		$this->db->select('*');
+		$this->db->from('user_account');
+		$this->db->where($condition);
+		$query = $this->db->get();
+
+		foreach($query->result_array as $row){}
+
+
+			return $row['email'];
+	}
 }
