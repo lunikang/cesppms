@@ -36,6 +36,24 @@
                 </li>
                 <?php } ?>
 
+                <!-- Sidebar options of CES Faculty -->
+                <?php if ($role === 'Faculty') { ?>
+                <li>
+                    <a href="<?php echo site_url('Faculty/home');?>">
+                        <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
+                        &nbsp;&nbsp;&nbsp; My Proposals
+                    </a>
+                </li>
+               
+                <li>
+                    <a href="<?php echo site_url('Faculty/profile_settings');?>">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        &nbsp;&nbsp;&nbsp; Profile Settings
+                    </a>
+                </li>
+                <?php } ?>
+
+
 
                 <!-- Sidebar options of CES Coordinator -->
                 <?php if ($role === 'Coordinator') { ?>
