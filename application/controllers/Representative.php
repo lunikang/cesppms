@@ -43,15 +43,12 @@ class Representative extends CI_Controller
 		?><script> alert("yuck fou6");</script><?php
 		if(isset($_SESSION['designation']) && $_SESSION['designation_fkid'] == 6)
 		{
-<<<<<<< Updated upstream
 
 			$this->load->model('Proposal_A');
 		
-=======
 			
 			
 			?><script> alert("yuck fou7");</script><?php
->>>>>>> Stashed changes
 			$this->load->model('Proposal_AB');
 			$this->load->model('Proposal_B');	
 			$thi->load->model('Propsal_C');
@@ -60,15 +57,11 @@ class Representative extends CI_Controller
 			$data['email']=$this->Proposal_A->getChairEmail($this->session->department,4);
 
 			$data['email']=$this->Proposal_AB->getChairEmail($this->session->department,4);
-<<<<<<< Updated upstream
 
 			$data['email']=$this->Proposal_B->getChairEmail($this->session->department,4);
 
 			$data['email']=$this->Proposal_C->getChairEmail($this->session->department,4);
-
-=======
 			?><script> alert("yuck fou8");</script><?php
->>>>>>> Stashed changes
 			echo $data['email'];
 
 			$this->load->library('email');
