@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Welcome to CES-DMS!</title>
+    <title>Welcome to CES-PPMS!</title>
 
     <!-- CES Website ico -->
     <link rel="icon" type="image/png" href="<?php echo base_url();?>assets/img/favicon.ico">
@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top" style="color: #FFF">C E S D M S</a>
+                <a class="navbar-brand" href="#page-top" style="color: #FFF">C E S P P M S</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -811,7 +811,7 @@
                               <tr>
                                 <td class="text-left" width="30%"><label>Username:</label></td>
                                 <td width="2%"></td>
-                                <td><input type="text" class="form-control" name="username" placeholder="Type your username" data-validation="length alphanumeric" data-validation-allowing="-_" data-validation-length="6-12" data-validation-error-msg="User name has to be an alphanumeric value (6-12 chars)" required><br></td>
+                                <td><input type="text" class="form-control" name="username" placeholder="Type your username" data-validation="length alphanumeric" data-validation-allowing="-_." data-validation-length="6-12" data-validation-error-msg="User name has to be an alphanumeric value (6-12 chars)" required><br></td>
                               </tr>
                               <tr>
                                 <td class="text-left"><label>Password:</label></td>

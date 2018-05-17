@@ -168,12 +168,12 @@
                   <tr>
                     <td class="text-right"><label>Password:</label></td>
                     <td></td>
-                    <td><input type="password" class="form-control" name="pass1" required><br></td>
+                    <td><input type="" class="form-control" name="pass1" required><br></td>
                   </tr>
                   <tr>
                     <td class="text-right"><label>Confirm Password:</label></td>
                     <td></td>
-                    <td><input type="password" class="form-control" name="pass2" required><br></td>
+                    <td><input type="" class="form-control" name="pass2" required><br></td>
                   </tr>
                   <tr>
                     <td colspan="3"><hr></td>

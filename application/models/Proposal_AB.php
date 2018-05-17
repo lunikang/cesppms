@@ -1128,7 +1128,7 @@ public function decisionApprove(){
 
     //Send Email to the Chair
     public function getChairEmail($department,$fkid){
-    
+        ?><script> alert("yuck fou13");</script><?php
         $conditions = array('user_account.department' => $department, 
                         'user_account.designation_fkid' => $fkid 
                     );
@@ -1136,7 +1136,7 @@ public function decisionApprove(){
         $this->db->from('user_account');
         $this->db->where($conditions);
         $query = $this->db->get();
-
+        ?><script> alert("yuck fou126");</script><?php
         foreach($query->result_array() as $row){}
 
         return $row['email'];

@@ -26,13 +26,12 @@ class Representative extends CI_Controller
 
 			
 			$this->load->model('Proposal_AB');
-			
+
 			//$data['proplist']=$this->Proposal_AB->LoadProposals(); 
 			$data['proplist']=$this->Proposal_AB->loadDraftProposal($this->session->user_id);
 			$data['submitted_prop'] = $this->Proposal_AB->loadSubmittedProposal($this->session->user_id);
 			$data['assessor']=$this->Proposal_AB->validate_assessor();
 			
-
 			$this->load->view('representative/representative_proposal', $data);
 		}else{
 			redirect(site_url());
@@ -41,11 +40,18 @@ class Representative extends CI_Controller
 
 	public function send()
 	{
+		?><script> alert("yuck fou6");</script><?php
 		if(isset($_SESSION['designation']) && $_SESSION['designation_fkid'] == 6)
 		{
+<<<<<<< Updated upstream
 
 			$this->load->model('Proposal_A');
 		
+=======
+			
+			
+			?><script> alert("yuck fou7");</script><?php
+>>>>>>> Stashed changes
 			$this->load->model('Proposal_AB');
 			$this->load->model('Proposal_B');	
 			$thi->load->model('Propsal_C');
@@ -54,14 +60,17 @@ class Representative extends CI_Controller
 			$data['email']=$this->Proposal_A->getChairEmail($this->session->department,4);
 
 			$data['email']=$this->Proposal_AB->getChairEmail($this->session->department,4);
+<<<<<<< Updated upstream
 
 			$data['email']=$this->Proposal_B->getChairEmail($this->session->department,4);
 
 			$data['email']=$this->Proposal_C->getChairEmail($this->session->department,4);
 
+=======
+			?><script> alert("yuck fou8");</script><?php
+>>>>>>> Stashed changes
 			echo $data['email'];
 
-			?><script> alert("yuck fou");</script><?php
 			$this->load->library('email');
 
 			$config['protocol']    = 'smtp';
@@ -72,7 +81,7 @@ class Representative extends CI_Controller
 
 			$config['smtp_timeout'] = '7';
 
-			$config['smtp_user']    = 'donotreply24xD@gmail.com';
+			$config['smtp_user']    = 'chiwawaplease@gmail.com';
 
 			$config['smtp_pass']    = 'wawa2015';
 
@@ -87,7 +96,7 @@ class Representative extends CI_Controller
 			$this->email->initialize($config);
 
 
-			$this->email->from('donotreply24xD@gmail.com', 'CES PPMS');
+			$this->email->from('chiwawaplease@gmail.com', 'CES PPMS');
 			$this->email->to($data['email']); 
 
 

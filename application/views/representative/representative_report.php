@@ -68,7 +68,7 @@
                         <?php foreach($list_d as $reps) {?>
                             <?php if($reps->creator_id == $user_id) { ?>
                                     <tr>
-                                        <td><a href="<?php echo base_url() ?>index.php/Representative/loadreportd/<?php echo $reps->id; ?>"><?php echo $reps->fd_title;?></a></td>
+                                        <td><a href="<?php echo base_url() ?>index.php/Representative/loadreportd/<?php echo $reps->proposal_id; ?>"><?php echo $reps->fd_title;?></a></td>
                                         <!-- <td><a href="" value="<?php echo $reps->id;?>"><?php echo $reps->fd_title;?></a></td> -->
                                         <td><?php echo $reps->datecreated;?>
                                             <br/>
@@ -82,7 +82,7 @@
                                         <td>
                                          <?php
                                             echo form_open('Representative/deleteForm_d');?>
-                                            <input class="form-control" type="hidden" name="id" value="<?php echo $reps->id;?>" >
+                                            <input class="form-control" type="hidden" name="id" value="<?php echo $reps->proposal_id;?>" >
                                             <button class="btn btn-sm btn-danger" type="submit" name="form_submit" value="DELETE FORM" onclick="return confirm('Are you sure you want to delete this item?')"><span class="glyphicon glyphicon-trash"></button>
                                             </form> </td>
                                     </tr>
