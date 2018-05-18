@@ -69,6 +69,25 @@
                 </li>
                 <?php } ?>
 
+                <!-- sidebar options for Co-Curricular -->
+
+                <?php if ($role === 'Co-Curricular Organization') { ?>
+                <li>
+                    <a href="<?php echo site_url('CoCurricular/home');?>">
+                        <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
+                        &nbsp;&nbsp;&nbsp; My Proposals
+                    </a>
+                </li>
+               
+                <li>
+                    <a href="<?php echo site_url('CoCurricular/profile_settings');?>">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        &nbsp;&nbsp;&nbsp; Profile Settings
+                    </a>
+                </li>
+                <?php } ?>
+
+
 
 
                 <!-- Sidebar options of CES Coordinator -->

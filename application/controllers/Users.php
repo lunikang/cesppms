@@ -152,8 +152,11 @@ class Users extends CI_Controller
 		if ($designation === 'Representative')
 		   redirect(site_url('Representative/home'));
 
-		if ($designation === 'Co-Curricular Organization' || $designation === 'Extra-Curricular Organization')
-		   redirect(site_url('ExtraCurricular/home'));
+		if ($designation === 'Co-Curricular Organization')
+		   redirect(site_url('CoCurricular/home'));
+
+		if ($designation === 'Extra-Curricular Organization')
+			redirect(site_url('ExtraCurricular/home'));
 
 		if ($designation === 'Faculty')
 		   redirect(site_url('Faculty/home'));

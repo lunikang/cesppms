@@ -13,17 +13,11 @@
 					<button type="button" id="menu-toggle" class="btn btn-default" data-target="#menu-toggle" data-toggle="tooltip" data-placement="bottom" title="Toggle Sidebar">
 	            		<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
 	            	</button>
-
-	            	
-
-	            	
+      	 	
 	            	<?php if ($role != "Representative" && $this->uri->segment(2) === "loadspecificproposal" || $this->uri->segment(2) === "loadspecificproposal_a" && $role != "Representative" && $role != "CES Director") { ?>
 	            	 	<button class="btn-minimize"><b><span class="glyphicon glyphicon-comment"></span>&nbsp;Comment Box</b></button>
 					<?php } ?>
 
-					 
-    
-  
 	            	
 				</div>
 				<div class="btn-header">
@@ -41,6 +35,12 @@
 					<?php if ($role === 'Faculty') { ?>
 						<?php if ($this->uri->segment(2) === "home") { ?>
 							<a href="<?php echo site_url('Faculty/create_proposal');?>" style="text-decoration:none"><button class="btn btn-success outline"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp Create Proposal</button></a>
+						<?php } ?>
+					<?php } ?> 
+
+					<?php if ($role === 'Co-Curricular Organization') { ?>
+						<?php if ($this->uri->segment(2) === "home") { ?>
+							<a href="<?php echo site_url('CoCurricular/create_proposal');?>" style="text-decoration:none"><button class="btn btn-success outline"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp Create Proposal</button></a>
 						<?php } ?>
 					<?php } ?> 
 
