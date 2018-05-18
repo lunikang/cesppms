@@ -50,18 +50,11 @@ class Representative extends CI_Controller
 			
 			?><script> alert("yuck fou7");</script><?php
 			$this->load->model('Proposal_AB');
-			$this->load->model('Proposal_B');	
-			$thi->load->model('Propsal_C');
 
-
-			$data['email']=$this->Proposal_A->getChairEmail($this->session->department,4);
 
 			$data['email']=$this->Proposal_AB->getChairEmail($this->session->department,4);
-
-			$data['email']=$this->Proposal_B->getChairEmail($this->session->department,4);
-
-			$data['email']=$this->Proposal_C->getChairEmail($this->session->department,4);
 			?><script> alert("yuck fou8");</script><?php
+			
 			echo $data['email'];
 
 			$this->load->library('email');

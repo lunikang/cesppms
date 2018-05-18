@@ -44,6 +44,12 @@
 						<?php } ?>
 					<?php } ?> 
 
+					<?php if ($role === 'Extra-Curricular Organization') { ?>
+						<?php if ($this->uri->segment(2) === "home") { ?>
+							<a href="<?php echo site_url('ExtraCurricular/create_proposal');?>" style="text-decoration:none"><button class="btn btn-success outline"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp Create Proposal</button></a>
+						<?php } ?>
+					<?php } ?> 
+
 					<?php if ($role === 'Coordinator') { ?>
 						<?php if ($this->uri->segment(2) === "home") { ?>
 							<a href="<?php echo site_url('Coordinator/create_proposal');?>" style="text-decoration:none"><button class="btn btn-success outline"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp Create Proposal</button></a>

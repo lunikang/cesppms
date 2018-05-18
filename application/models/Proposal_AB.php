@@ -894,7 +894,7 @@ public function decisionApprove(){
 	public function loadSubmittedProposal($user_id)
 	{
 		$this->db->select("*");
-        $where = "status='1' OR status='3' OR status='4' OR status='5' OR status='6' OR status='10' OR status='11' OR status='12'" ;
+        $where = "(status='1' OR status='3' OR status='4' OR status='5' OR status='6' OR status='10' OR status='11' OR status='12')" ;
 		$this->db->where($where);
 		$this->db->where('user_id',$user_id);
 		$query = $this->db->get('proposal_json');
