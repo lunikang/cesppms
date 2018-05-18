@@ -81,7 +81,7 @@
                         foreach($reportlist_d as $repd) {?>
                             
                                     <tr>
-                                        <td><a href="<?php echo base_url() ?>index.php/Representative/loadreportd/<?php echo $repd->id; ?>"><?php echo $repd->fd_title;?></a></td>
+                                        <td><a href="<?php echo base_url() ?>index.php/Representative/loadreportd/<?php echo $repd->proposal_id; ?>"><?php echo $repd->fd_title;?></a></td>
                                        
                                         <td><?php echo $repd->datecreated;?>
                                             <br/>
@@ -95,7 +95,7 @@
                                         <td>
                                          <?php
                                             echo form_open('Representative/deleteForm_d');?>
-                                            <input class="form-control" type="hidden" name="id" value="<?php echo $repd->id;?>" >
+                                            <input class="form-control" type="hidden" name="id" value="<?php echo $repd->proposal_id;?>" >
                                             <button class="btn btn-sm btn-danger" type="submit" name="form_submit" value="DELETE FORM" onclick="return confirm('Are you sure you want to delete this item?')"><span class="glyphicon glyphicon-trash"></button>
                                             </form> </td>
                                     </tr>

@@ -251,7 +251,8 @@ class Representative extends CI_Controller
 		$data['creator_id'] = $this->session->user_id;
 		$data['creators_school']	= $this->session->office;
 		$proposal_array = array();
-		$proposals2 = $this->Reports->get_title();
+		$proposals2 = $this->Reports->get_title($data['creator_id']);
+		
 		foreach($proposals2 as $prop)
 		{
 
@@ -270,7 +271,8 @@ class Representative extends CI_Controller
 
 	public function formd_titles(){
 		$this->load->model('Reports');
-	   $data['titles'] = $this->Reports->get_title();
+		$data['creator_id'] = $this->session->user_id;
+	    $data['titles'] = $this->Reports->get_title($data['creator_id']);
 		
 	   // $this->template->show('title', $data);
 	   $this->load->view('forms/form_d', $data); 

@@ -128,9 +128,9 @@
 					{	
 						var proposal_details = dataJSON[i].proposal_json_format;
 						if(dataJSON[i].form_type == 1)
-							var link = "<a href="+base_url+"Representative/loadspecificproposal/"+dataJSON[i].proposal_id+">";
+							var link = "<a href="+base_url+"Representative/form_a_1?proposal_id="+dataJSON[i].proposal_id+">";
 						else
-							var link="<a href=#>";
+							var link = "<a href="+base_url+"Representative/form_a_1?proposal_id="+dataJSON[i].proposal_id+">";
 						console.log(proposal_details);
 						var user_id = "<?php echo $user_id; ?>";
 						dataRows.push([
@@ -163,11 +163,11 @@
 					var dataRows=[];
 					for(var i = 0; i < dataJSON.length; i++)
 					{	
-						var proposal_details = JSON.parse(dataJSON[i].proposal_json_format);
+						var proposal_details = dataJSON[i].proposal_json_format;
 						if(dataJSON[i].form_type == 1)
 							var link = "<a href="+base_url+"Representative/loadspecificproposal/"+dataJSON[i].proposal_id+">";
 						else
-							var link="<a href=#>";
+						var link = "<a href="+base_url+"Representative/loadspecificproposal/"+dataJSON[i].proposal_id+">";
 						//console.log(proposal_details);
 						var user_id = "<?php echo $user_id; ?>";
 						dataRows.push([

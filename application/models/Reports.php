@@ -36,8 +36,12 @@ class Reports extends CI_Model
 	
 	}
 
-	function get_title() {
- 
+	function get_title($idsauser) {
+ 		 $where = "(status='1' OR status='3' OR status='4' OR status='5' OR status='6' OR status='10' OR status='11' OR status='12')";
+ 		 $this->db->where($where);
+ 		 $this->db->where('user_id', $idsauser);
+
+ 		 
 		 $q = $this->db->get('proposal_json');
 
     	if ($q->num_rows() > 0)
@@ -87,7 +91,7 @@ class Reports extends CI_Model
 		$this->db->select('*');
 		$this->db->from('report_d');
 
-		$this->db->where('id', $reportd_id);
+		$this->db->where('proposal_id', $reportd_id);
 
 		 $query = $this->db->get();
 

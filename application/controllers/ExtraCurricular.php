@@ -95,7 +95,7 @@ class ExtraCurricular extends CI_Controller
 		$data['user_id']= $this->session->user_id;
 
 		
-		$this->load->view('faculty/faculty_create_proposal', $data);
+		$this->load->view('extra-curricular/extra_curricular_create_proposal', $data);
 	}
 
 	public function form_a() {

@@ -127,7 +127,7 @@ class Coordinator extends CI_Controller
 		$data['creators_school']	= $this->session->office;
 
 		$this->load->model('Reports');
-		$data['titles'] = $this->Reports->get_title();
+		$data['titles'] = $this->Reports->get_title($data['creator_id']);
 		$this->load->view('forms/form_d', $data);
 	}
 

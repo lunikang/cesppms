@@ -94,7 +94,7 @@
                         <span class="school"><a href="http://usc.edu.ph"><img class="img-responsive" src="<?php echo base_url();?>assets/img/banner.png" alt="USC" style="height:10%;width:500px"></a></span>
                         <span class="name"><img class="img-responsive" src="<?php echo base_url();?>assets/img/CES.png" alt="USC" style="height:auto;width:1100px"></span>
                         <hr>
-                        <span class="skills">Document Management System</span>
+                        <span class="skills">Project Proposal Management System</span>
                     </div>
                 </div>
             </div>
@@ -656,7 +656,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; CESDMS 2016
+                        Copyright &copy; CESPPMS 2018
                     </div>
                 </div>
             </div>
@@ -671,8 +671,8 @@
     </div>
 
     <!-- Registration Modal -->
-    <div class="portfolio-modal modal fade" id="register" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
+    <div class="portfolio-modal modal fade " id="register" tabindex="-1" role="dialog" aria-hidden="true" >
+        <div class="modal-content mt-4">
             <div class="container">
             <div class="modal-header">
                 <div class="close-modal" data-dismiss="modal">
@@ -699,12 +699,12 @@
                               <tr>
                                 <td class="text-left"><label>First Name:</label></td>
                                 <td></td>
-                                <td><input type="text" class="form-control" name="firstname" placeholder="Type your firstname" data-validation="alphanumeric" required><br></td>
+                                <td><input type="text" class="form-control" name="firstname" placeholder="Type your firstname" data-validation-allowing="-_. "  data-validation="alphanumeric" required><br></td>
                               </tr>
                               <tr>
                                 <td class="text-left"><label>Last Name:</label></td>
                                 <td width="2%"></td>
-                                <td><input type="text" class="form-control" name="lastname" placeholder="Type your lastname" data-validation="alphanumeric" required><br></td>
+                                <td><input type="text" class="form-control" name="lastname" placeholder="Type your lastname" data-validation="alphanumeric" data-validation-allowing="-_. "required><br></td>
                               </tr>
                               <tr>
                                 <td class="text-left"><label>School:</label></td>
@@ -795,7 +795,7 @@
                               <tr>
                                 <td class="text-left"><label>Contact Number:</label></td>
                                 <td></td>
-                                <td><input type="text" class="form-control" name="contact_num" placeholder="Type your cellphone number" data-validation="number" required></td>
+                                <td><input type="text" class="form-control" name="contact_num" placeholder="Type your cellphone number" data-validation="number" data-validation-allowing="+" data-validation-length="6-12" data-validation-error-msg="Phone number must contain 11 digits" required></td>
                               </tr>
                             </table>
                           </div>

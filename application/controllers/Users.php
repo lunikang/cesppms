@@ -86,10 +86,13 @@ class Users extends CI_Controller
 		    } 
 
 		    if ($check === FALSE) {
-		      echo "<meta http-equiv='refresh' content='3; url=".site_url()."'>";
-		      echo "<center><h3>Password inputted doesn't match</h3>";
-		      echo "<h5> redirecting to homepage ... </h5></center>";
-		      return;
+		      ?>
+		      <script>alert ("Username or Password is Invalid");
+		      </script>
+
+		      <?php
+
+		      redirect('', 'refresh');
 		    }
 		  
 		}
