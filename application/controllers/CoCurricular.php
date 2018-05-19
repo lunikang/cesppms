@@ -1,86 +1,170 @@
 <?php
-defined('BASEPATH') OR exit('No direct Script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+* Revision history
+* 2017-26-11 Home() - Added a session checker for the appropriate
+* access per page, designation_fkid will be used to check the
+* appropriate account access.
+*/
 
 class CoCurricular extends CI_Controller
 {
-
-	function __construct(){
-		parent:: __construct();
+	
+	function __construct()
+	{
+		parent::__construct();
 	}
 
-	public function home(){
+	public function home() {
+		if(isset($_SESSION['designation']) && $_SESSION['designation_fkid'] == 7)
+		{
+			$data['fname'] 	= $this->session->firstname;
+			$data['lname'] 	= $this->session->lastname;
+			$data['role']	= $this->session->designation;
+			$data['user_id']= $this->session->user_id;
 
-		if(isset($_SESSION['designation']) && $_SESSION['designation_fkid'] == 7){
-			$data['fname'] = $this->session->firstname;
-			$data['lname'] = $this->session->lastname;
-			$data['role'] = $this->session->designation;
-			$data['user_id'] = $this->session->user_id;
-
+			
 			$this->load->model('Proposal_AB');
 
-			$data['proplist'] = $this->Proposal_AB->LoadDraftProposal($this->session->user_id);
-			$data['submitted_prop'] = $this->Proposal_AB->LoadSubmittedProposal($this->session->user_id);
-			$data['assessor'] = $this->Proposal_AB->validate_assessor();
-
+			//$data['proplist']=$this->Proposal_AB->LoadProposals(); 
+			$data['proplist']=$this->Proposal_AB->loadDraftProposal($this->session->user_id);
+			$data['submitted_prop'] = $this->Proposal_AB->loadSubmittedProposal($this->session->user_id);
+			$data['assessor']=$this->Proposal_AB->validate_assessor();
+			
 			$this->load->view('cocurricular/cocurricular_proposal', $data);
-
 		}else{
 			redirect(site_url());
-		
 		}
 	}
 
-	public function create_proposal(){
+	public function send()
+	{
+		?><script> alert("yuck fou6");</script><?php
+		if(isset($_SESSION['designation']) && $_SESSION['designation_fkid'] == 7)
+		{
 
-		$data['fname'] = $this->session->firstname;
-		$data['lname'] = $this->session->lastname;
-		$data['role'] = $this->session->designation;
+			$this->load->model('Proposal_A');
+		
+			
+			
+			?><script> alert("yuck fou7");</script><?php
+			$this->load->model('Proposal_AB');
 
 
-		$this->load->view('cocurricular/cocurricular_create_proposal');
+			$data['email']=$this->Proposal_AB->getChairEmail($this->session->department,4);
+			?><script> alert("yuck fou8");</script><?php
+			
+			echo $data['email'];
+
+			$this->load->library('email');
+
+			$config['protocol']    = 'smtp';
+
+			$config['smtp_host']    = 'ssl://smtp.gmail.com';
+
+			$config['smtp_port']    = '465';
+
+			$config['smtp_timeout'] = '7';
+
+			$config['smtp_user']    = 'chiwawaplease@gmail.com';
+
+			$config['smtp_pass']    = 'wawa2015';
+
+			$config['charset']    = 'utf-8';
+
+			$config['newline']    = "\r\n";
+
+			$config['mailtype'] = 'text'; // or html
+
+			$config['validation'] = TRUE; // bool whether to validate email or not      
+
+			$this->email->initialize($config);
+
+
+			$this->email->from('chiwawaplease@gmail.com', 'CES PPMS');
+			$this->email->to($data['email']); 
+
+
+			$this->email->subject('CES Proposal Notification');
+
+			$this->email->message('Good day!');   
+			  
+		  	if($this->email->send())
+		  	{
+		  		// mail sent
+        		redirect(site_url());
+		  	}
+		  	else
+		  	{
+        		redirect(site_url());
+		  	}
+		}
 	}
 
-	public function form_a(){
 
-		$data['fname'] = $this->session->firstname;
-		$data['lname'] = $this->session->lastname;
-		$data['role'] = $this->session->designation;
-		$data['user_id'] = $this->session->user_id;
-		$data['user_office'] = $this->session->office;
-		$data['user_dept'] = $this->session->department;
-		$data['organization'] = $this->session->organization;
+	public function create_proposal() {
+		$data['fname'] 	= $this->session->firstname;
+		$data['lname'] 	= $this->session->lastname;
+		$data['role']	= $this->session->designation;
+		$data['user_id']= $this->session->user_id;
 
+		
+		$this->load->view('cocurricular/cocurricular_create_proposal', $data);
+	}
 
-		if(isset($_GET['propsal_id'])){
+	public function create_report() {
+		$data['fname'] 	= $this->session->firstname;
+		$data['lname'] 	= $this->session->lastname;
+		$data['role']	= $this->session->designation;
+
+		
+
+		$this->load->view('cocurricular/cocurricular_create_report', $data);
+	}
+
+	public function form_a() {
+		$data['fname'] 	= $this->session->firstname;
+		$data['lname']	= $this->session->lastname;
+		$data['role']	= $this->session->designation;
+		$data['user_id']	= $this->session->user_id;
+		$data['user_office']	= $this->session->office;
+		$data['user_dept']	= $this->session->department;
+		$data['organization']	= $this->session->organization;
+
+		if(isset($_GET['proposal_id'])){
 			$this->load->model('Proposal_AB');
 			$data["proposal"] = $this->Proposal_AB->getProposalDetails($_GET['proposal_id']);
-			$data["proposal_id"] = $_GET['proposal_id'];
-
-		} 
+		    $data["proposal_id"] = $_GET['proposal_id'];
+		}
 		$this->load->view('forms/form_a', $data);
 	}
 
-	public function form_a_1(){ 	
-
-		$data['fname'] = $this->session->firstname;
-		$data['lname'] = $this->session->lastname;
-		$data['role'] = $this->session->designation;
-		$data['user_id'] = $this->session->user_id;
-		$data['user_office'] = $this->session->office;
-		$data['user_dept'] = $this->session->department;
-		$data['organization'] = $this->session->organization;
-
-		if(isset($_GET['form_type'])){
+	public function form_a_1() {
+		$data['fname'] 	= $this->session->firstname;
+		$data['lname'] 	= $this->session->lastname;
+		$data['role']	= $this->session->designation;
+		$data['user_id']	= $this->session->user_id;
+		$data['user_office']	= $this->session->office;
+		$data['user_dept']	= $this->session->department;
+		$data['organization']	= $this->session->organization;
+	
+		if(isset($_GET['proposal_id'])){
+			$this->load->model('Proposal_AB');
+			$data["proposal"] = $this->Proposal_AB->getProposalDetails($_GET['proposal_id']);
+		    $data["proposal_id"] = $_GET['proposal_id'];
+		}
+		if(isset($_GET['form_type']))
+		{
 			$data['form_type'] = 1;
 		}else{
 			$data['form_type'] = 2;
 		}
-
+		//echo $data['form_type'];
 		$this->load->view('forms/form_a1', $data);
-
 	}
-	public function fEditFormAB_p1(){
+
+	public function fEditFormAB_p1() {
 		$data['fname'] 	= $this->session->firstname;
 		$data['lname'] 	= $this->session->lastname;
 		$data['role']	= $this->session->designation;
@@ -98,6 +182,7 @@ class CoCurricular extends CI_Controller
 
 		$this->load->view('forms/form_a1_update', $data);
 	}
+
 	public function EditFormAB_draft() {
 		$data['fname'] 	= $this->session->firstname;
 		$data['lname'] 	= $this->session->lastname;
@@ -116,6 +201,7 @@ class CoCurricular extends CI_Controller
 
 		$this->load->view('forms/form_a1_update', $data);
 	}
+
 	public function form_b() {
 		$data['fname'] 	= $this->session->firstname;
 		$data['lname'] 	= $this->session->lastname;
@@ -132,7 +218,15 @@ class CoCurricular extends CI_Controller
 		$this->load->view('forms/form_c', $data);
 	}
 
-	// for loading specific proposal
+
+
+	
+
+
+
+
+
+		// for loading specific proposal
 	public function loadspecificproposal(){
 		$proposal_id= $this->uri->segment(3);
 		$data["id"] = $this->uri->segment(3);
@@ -172,19 +266,100 @@ class CoCurricular extends CI_Controller
 		$this->load->view("forms/sample_form_a1", $data);
 	}
 
-	 public function deleteForm(){
+	
+
+
+		//for form d
+	public function loadreportd(){
+		$reportd_id= $this->uri->segment(3);
+		$data["id"] = $this->uri->segment(3);
+		$data['fname'] = $this->session->firstname;
+		$data['lname'] = $this->session->lastname;
+		$data['role']	= $this->session->designation;
+		$data['department']	= $this->session->department;
+		$data['creators_school']	= $this->session->office;
+
+		$this->load->model('Reports');
+		$data['reps']=$this->Reports->viewReport_d($reportd_id);
+		
+		$this->load->view("forms/form_d_report", $data);
+	}
+
+//for form e
+	public function loadreporte(){
+		$reporte_id= $this->uri->segment(3);
+		$data["id"] = $this->uri->segment(3);
+		$data['fname'] = $this->session->firstname;
+		$data['lname'] = $this->session->lastname;
+		$data['role']	= $this->session->designation;
+		$data['department']	= $this->session->department;
+		$data['creators_school']	= $this->session->office;
+
+		$this->load->model('Reports');
+		$data['repe']=$this->Reports->viewReport_e($reporte_id);
+		$this->load->view("forms/form_e_report", $data);
+	}
+
+//for form e create report form e
+	public function form_e() {
+		$data['fname'] 	= $this->session->firstname;
+		$data['lname'] 	= $this->session->lastname;
+		$data['role']	= $this->session->designation;
+		$data['department']	= $this->session->department;
+		$data['creators_school']	= $this->session->office;
+		$data['creator_id'] = $this->session->user_id;
+
+		$this->load->view('forms/form_e', $data);
+	}
+
+
+
+
+//FOR form E 
+		public function viewEditForme(){
+			$data['fname'] = $this->session->firstname;
+			$data['lname'] = $this->session->lastname;
+			$data['role']	= $this->session->designation;
+			$data['department'] = $this->session->department;
+			$this->load->model('Reports');
+	        $p= new Reports();
+	        $p->id=$this->input->post('id');
+	        // $data= array();
+	        $data['results_e']=$p->getOneForme();
+	        $this->load->view('forms/form_e_update', $data);
+		}
+
+
+
+
+
+  
+
+    public function deleteForm(){
    	$this->load->model('Proposal_AB');
 
    $this->Proposal_AB->row_delete($this->input->post('id'));
    $this->session->set_flashdata('success_msg',
 					'<strong>Report Deleted!</strong> You have successfully deleted a proposal.');
 				
-	redirect(site_url('CoCurricular/home'), "refresh");
+	redirect(site_url('Representative/home'), "refresh");
 	
 
    }
 
-    public function deleteForm_proposals(){
+    public function deleteForm_d(){
+   	$this->load->model('Reports');
+
+   $this->Reports->row_delete_d($this->input->post('id'));
+   $this->session->set_flashdata('success_msg',
+					'<strong>Report Deleted!</strong> You have successfully deleted a report.');
+				
+	redirect(site_url('Representative/reports'), "refresh");
+	
+
+   }
+
+   public function deleteForm_proposals(){
    	$this->load->model('Reports');
 
    $this->Reports->row_delete_proposals($this->input->post('id'));
@@ -194,7 +369,11 @@ class CoCurricular extends CI_Controller
 	redirect(site_url('CoCurricular/home'), "refresh");
    }
 
-   public function sample_a1() {
+
+
+
+
+	public function sample_a1() {
 		$data['fname'] = $this->session->fname;
 		$data['lname'] = $this->session->lname;
 
@@ -213,6 +392,24 @@ class CoCurricular extends CI_Controller
 		$data['lname'] = $this->session->lastname;
 		$data['role']	= $this->session->designation;
 		$this->load->view('forms/sample_form_b', $data);
+	}
+
+	public function sample_c() {
+		$data['fname'] = $this->session->fname;
+		$data['lname'] = $this->session->lname;
+		$this->load->view('forms/sample_form_c', $data);
+	}
+
+	public function sample_report1() {
+		$data['fname'] = $this->session->fname;
+		$data['lname'] = $this->session->lname;
+		$this->load->view('forms/sample_form_d', $data);
+	}
+
+	public function sample_report2() {
+		$data['fname'] = $this->session->fname;
+		$data['lname'] = $this->session->lname;
+		$this->load->view('forms/sample_form_e', $data);
 	}
 
 	public function view_form() {
@@ -269,7 +466,7 @@ class CoCurricular extends CI_Controller
 			
 			$data['user'] = $user->get_user();
 
-			$this->load->view('cocurricular/cocurricular_setting', $data);
+			$this->load->view('CoCurricular/cocurricular_setting', $data);
 		}else{
 			redirect(site_url());
 		}
@@ -319,10 +516,8 @@ class CoCurricular extends CI_Controller
 
 		  	} else {
 				echo "Error";
-		 	 	}
 		  	}
-
+		  }
 		}
-
 	}
 }
