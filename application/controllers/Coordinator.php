@@ -118,6 +118,101 @@ class Coordinator extends CI_Controller
 		$this->load->view('coordinator/coordinator_create_report', $data);
 	}
 
+	public function form_a() {
+		$data['fname'] 	= $this->session->firstname;
+		$data['lname']	= $this->session->lastname;
+		$data['role']	= $this->session->designation;
+		$data['user_id']	= $this->session->user_id;
+		$data['user_office']	= $this->session->office;
+		$data['user_dept']	= $this->session->department;
+		$data['organization']	= $this->session->organization;
+
+		if(isset($_GET['proposal_id'])){
+			$this->load->model('Proposal_AB');
+			$data["proposal"] = $this->Proposal_AB->getProposalDetails($_GET['proposal_id']);
+		    $data["proposal_id"] = $_GET['proposal_id'];
+		}
+		$this->load->view('forms/form_a', $data);
+	}
+
+	public function form_a_1() {
+		$data['fname'] 	= $this->session->firstname;
+		$data['lname'] 	= $this->session->lastname;
+		$data['role']	= $this->session->designation;
+		$data['user_id']	= $this->session->user_id;
+		$data['user_office']	= $this->session->office;
+		$data['user_dept']	= $this->session->department;
+		$data['organization']	= $this->session->organization;
+	
+		if(isset($_GET['proposal_id'])){
+			$this->load->model('Proposal_AB');
+			$data["proposal"] = $this->Proposal_AB->getProposalDetails($_GET['proposal_id']);
+		    $data["proposal_id"] = $_GET['proposal_id'];
+		}
+		if(isset($_GET['form_type']))
+		{
+			$data['form_type'] = 1;
+		}else{
+			$data['form_type'] = 2;
+		}
+		//echo $data['form_type'];
+		$this->load->view('forms/form_a1', $data);
+	}
+
+	public function fEditFormAB_p1() {
+		$data['fname'] 	= $this->session->firstname;
+		$data['lname'] 	= $this->session->lastname;
+		$data['role']	= $this->session->designation;
+		$data['user_id']	= $this->session->user_id;
+		$data['user_office']	= $this->session->office;
+		$data['user_dept']	= $this->session->department;
+		$data['organization']	= $this->session->organization;
+
+		$this->load->model('Proposal_AB');
+	    $p= new Proposal_AB();
+	    $p->id=$this->input->post('id');
+
+	    
+	    $data['result_ab']=$p->getOneFormAB();
+
+		$this->load->view('forms/form_a1_update', $data);
+	}
+
+	public function EditFormAB_draft() {
+		$data['fname'] 	= $this->session->firstname;
+		$data['lname'] 	= $this->session->lastname;
+		$data['role']	= $this->session->designation;
+		$data['user_id']	= $this->session->user_id;
+		$data['user_office']	= $this->session->office;
+		$data['user_dept']	= $this->session->department;
+		$data['organization']	= $this->session->organization;
+
+		$this->load->model('Proposal_AB');
+	    $p= new Proposal_AB();
+	    $p->id=$this->uri->segment(3);
+
+	    
+	    $data['result_ab']=$p->getOneFormAB();
+
+		$this->load->view('forms/form_a1_update', $data);
+	}
+
+	public function form_b() {
+		$data['fname'] 	= $this->session->firstname;
+		$data['lname'] 	= $this->session->lastname;
+		$data['role']	= $this->session->designation;
+
+		$this->load->view('forms/form_b', $data);
+	}
+
+	public function form_c() {
+		$data['fname'] 	= $this->session->firstname;
+		$data['lname'] 	= $this->session->lastname;
+		$data['role']	= $this->session->designation;
+
+		$this->load->view('forms/form_c', $data);
+	}
+	
 	public function form_d() {
 		$data['fname'] 	= $this->session->firstname;
 		$data['lname'] 	= $this->session->lastname;

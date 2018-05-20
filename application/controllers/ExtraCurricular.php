@@ -193,9 +193,139 @@ class ExtraCurricular extends CI_Controller
 		$this->load->view('forms/form_c', $data);
 	}
 
+//for form d create report form D
+	public function form_d() {
+		$this->load->model('Reports');
+		$data['fname'] = $this->session->firstname;
+		$data['lname'] = $this->session->lastname;
+		$data['role']	= $this->session->designation;
+		$data['department'] = $this->session->department;
+		$data['creator_id'] = $this->session->user_id;
+		$data['creators_school']	= $this->session->office;
+		$proposal_array = array();
+		$proposals2 = $this->Reports->get_title($data['creator_id']);
+		
+		foreach($proposals2 as $prop)
+		{
+
+			$data2 = array("proposalJsonDetails" => (object)json_decode($prop->proposal_json_format),
+						  "propdetails"=>$prop);
+										
+			array_push($proposal_array, $data2);
+		}
+		$data["proposals"] = $proposal_array;
+		// $datum['titles']= $this->Reports->get_title();
+		//echo $this->session->designation;
+		//var_dump($proposal_array);
+
+		$this->load->view('forms/form_d', $data);
+	}
+
+	public function formd_titles(){
+		$this->load->model('Reports');
+		$data['creator_id'] = $this->session->user_id;
+	    $data['titles'] = $this->Reports->get_title($data['creator_id']);
+		
+	   // $this->template->show('title', $data);
+	   $this->load->view('forms/form_d', $data); 
+	}
+
+	//add form D report through submitting
+	public function addFormd() {
+				$data['fname'] = $this->session->firstname;
+				$data['lname'] = $this->session->lastname;
+				$data['department'] = $this->session->department;
+				
+				$data['creator_id'] = $this->session->user_id;
 
 
-	
+				// $data['titles'] = $this->Reports->get_title();
+				// // $datum['titles']= $this->Reports->get_title();
+				// $this->load->view('forms/form_d', $data);
+				// var_dump($data);
+				// $this->template->show('title', $datum);
+				$this->load->model('Reports');
+				$this->load->model('Proposal_AB');
+				$p = new Reports();
+
+				$p->proposal_id=$this->input->post('id'); // para sa TITLE
+				$p->fd_school=$this->input->post('fd_school'); // para sa SCHOOL
+				$p->fd_dept=$this->input->post('fd_dept'); // para sa DEPARTMENT
+				$p->fd_venue=$this->input->post('fd_venue'); // para sa VENUE
+
+				$p->date_start=$this->input->post('act_duration1'); //INCLUSIVE DATE START
+				$p->date_end=$this->input->post('act_duration2'); //INCLUSIVE DATE END!
+				$p->introduction=$this->input->post('introduction');
+				$p->participants_partners_and_beneficiaries=$this->input->post('participants_partners_and_beneficiaries');
+				$p->perceived_by_beneficiaries=$this->input->post('perceived_by_beneficiaries');
+				$p->perceived_by_students=$this->input->post('perceived_by_students');
+				$p->perceived_by_faculty=$this->input->post('perceived_by_faculty');
+				$p->challenges_encountered=$this->input->post('challenges_encountered');
+
+				// passing the info of creator
+				$p->who_created=$this->input->post('who_created');
+				$p->creators_department=$this->input->post('creators_department');
+				$p->creator_id=$this->input->post('creator_id');
+				$p->creators_school=$this->input->post('creators_school');
+				$specprop = $this->Proposal_AB->getProposalDetails($p->proposal_id);
+				$proposal_json_format = (object)json_decode($specprop[0]->proposal_json_format);
+				$p->fd_title = $proposal_json_format->title;
+				//echo "<br/>".$p->fd_title;
+				$result=$p->AddFormD();
+				if(!$result){
+					$this->session->set_flashdata('error_msg',
+						'<strong>Something Went Wrong!</strong> An Error occured while saving your report.');
+
+					redirect(site_url('Representative/reports'), "refresh");
+				}
+				else{
+					$this->session->set_flashdata('success_msg',
+						'<strong>Report Created!</strong> You have successfully created Report D.');
+					
+					redirect(site_url('Representative/reports'), "refresh");
+				}
+				//echo "<br/>".$this->input->post('id');
+	}
+
+	// for loading specific proposal
+	public function loadspecificproposal(){
+		$proposal_id= $this->uri->segment(3);
+		$data["id"] = $this->uri->segment(3);
+		//$data["status"] = $this->uri->segment(4);
+		$data['fname'] = $this->session->firstname;
+		$data['lname'] = $this->session->lastname;
+		$data['role']	= $this->session->designation;
+		$data['department']	= $this->session->department;
+		$data['creators_school']	= $this->session->office;
+		$data['user_id'] = $this->session->user_id;
+
+		$this->load->model('Proposal_AB');
+		$data["proposal"] = $this->Proposal_AB->getProposalDetails($proposal_id);
+		$data["proposal_id"]= $proposal_id;
+		$proposal = $data["proposal"];
+		$data['specprop']=(object) json_decode($proposal[0]->proposal_json_format,FALSE);
+		$data['comments']=$this->Proposal_AB->LoadComments($proposal_id);
+		$this->load->view("forms/sample_form_b", $data);
+	}
+
+	public function loadspecificproposal_a(){
+		$proposal_id= $this->uri->segment(3);
+		$data["id"] = $this->uri->segment(3);
+		$data['fname'] = $this->session->firstname;
+		$data['lname'] = $this->session->lastname;
+		$data['role']	= $this->session->designation;
+		$data['department']	= $this->session->department;
+		$data['creators_school']	= $this->session->office;
+		$data['user_id'] = $this->session->user_id;
+
+		$this->load->model('Proposal_AB');
+		$data['specprop_a']=$this->Proposal_AB->viewSpecificprop_a($proposal_id);
+		$data['comments']=$this->Proposal_AB->LoadComments($proposal_id);
+		$data['assessor']=$this->Proposal_AB->validate_assessor();
+		$data['validate_prop']=$this->Proposal_AB->viewScores($proposal_id);
+
+		$this->load->view("forms/sample_form_a1", $data);
+	}
 
 
 //for form e

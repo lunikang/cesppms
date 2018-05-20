@@ -46,7 +46,7 @@
                                             </ul>
                                         </td>
                                         <td width="30%">
-                                            <a href="<?php echo site_url('Representative/form_a_1');?>" style="text-decoration:none">
+                                            <a href="<?php echo site_url('Coordinator/form_a_1');?>" style="text-decoration:none">
                                                 <button type="button" class="btn btn-success btn-block btn-lg">Proceed &nbsp<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
                                             </a>
                                         </td>
@@ -65,7 +65,7 @@
                                             </ul>
                                         </td>
                                         <td width="30%">
-                                            <a href="form_a1.php" style="text-decoration:none">
+                                            <a href=<?php echo site_url('Coordinator/form_a_1');?>" style="text-decoration:none">
                                                 <button type="button" class="btn btn-success btn-block btn-lg">Proceed &nbsp<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
                                             </a>
                                         </td>
@@ -92,7 +92,7 @@
                                                     </ul>
                                                 </td>
                                                 <td width="30%">
-                                                    <a href="form_a1.php" style="text-decoration:none">
+                                                    <a href="<?php echo site_url('Coordinator/form_a_1');?>" style="text-decoration:none">
                                                         <button type="button" class="btn btn-success btn-block btn-lg">Proceed &nbsp<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
                                                     </a>
                                                 </td>
@@ -104,7 +104,7 @@
                                                     </ul>
                                                 </td>
                                                 <td width="30%">
-                                                    <a href="form_a.php" style="text-decoration:none">
+                                                    <a href="<?php echo site_url('Coordinator/form_a');?>" style="text-decoration:none">
                                                         <button type="button" class="btn btn-success btn-block btn-lg">Proceed &nbsp<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
                                                     </a>
                                                 </td>
@@ -116,7 +116,7 @@
                                                     </ul>
                                                 </td>
                                                 <td width="30%">
-                                                    <a href="form_a.php" style="text-decoration:none">
+                                                    <a href="<?php echo site_url('Coordinator/form_a');?>" style="text-decoration:none">
                                                         <button type="button" class="btn btn-success btn-block btn-lg">Proceed &nbsp<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
                                                     </a>
                                                 </td>
@@ -128,7 +128,7 @@
                                                     </ul>
                                                 </td>
                                                 <td width="30%">
-                                                    <a href="form_c.php" style="text-decoration:none">
+                                                    <a href="<?php echo site_url('Coordinator/form_c');?>" style="text-decoration:none">
                                                         <button type="button" class="btn btn-success btn-block btn-lg">Proceed &nbsp<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
                                                     </a>
                                                 </td>
@@ -140,7 +140,7 @@
                                                     </ul>
                                                 </td>
                                                 <td width="30%">
-                                                    <a href="form_c.php" style="text-decoration:none">
+                                                    <a href="<?php echo site_url('Coordinator/form_c');?>" style="text-decoration:none">
                                                         <button type="button" class="btn btn-success btn-block btn-lg">Proceed &nbsp<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
                                                     </a>
                                                 </td>

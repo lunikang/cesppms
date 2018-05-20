@@ -45,7 +45,7 @@
                                             </ul>
                                         </td>
                                         <td width="30%">
-                                            <a href="<?php echo site_url('Representative/form_a_1?form_type=1');?>" style="text-decoration:none">
+                                            <a href="<?php echo site_url('ExtraCurricular/form_a_1?form_type=1');?>" style="text-decoration:none">
                                                 <button type="button" class="btn btn-success btn-block btn-lg">Proceed &nbsp<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
                                             </a>
                                         </td>
@@ -64,7 +64,7 @@
                                             </ul>
                                         </td>
                                         <td width="30%">
-                                            <a href="<?php echo site_url('Representative/form_a_1?form_type=1');?>" style="text-decoration:none">
+                                            <a href="<?php echo site_url('ExtraCurricular/form_a_1?form_type=1');?>" style="text-decoration:none">
                                                 <button type="button" class="btn btn-success btn-block btn-lg">Proceed &nbsp<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
                                             </a>
                                         </td>
@@ -91,7 +91,7 @@
                                                     </ul>
                                                 </td>
                                                 <td width="30%">
-                                                    <a href="<?php echo site_url('Representative/form_a_1?form_type=1');?>" style="text-decoration:none">
+                                                    <a href="<?php echo site_url('ExtraCurricular/form_a');?>" style="text-decoration:none">
                                                         <button type="button" class="btn btn-success btn-block btn-lg">Proceed &nbsp<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
                                                     </a>
                                                 </td>
@@ -103,7 +103,7 @@
                                                     </ul>
                                                 </td>
                                                 <td width="30%">
-                                                    <a href="<?php echo site_url('Representative/form_a');?>" style="text-decoration:none">
+                                                    <a href="<?php echo site_url('ExtraCurricular/form_a');?>" style="text-decoration:none">
                                                         <button type="button" class="btn btn-success btn-block btn-lg" >Proceed &nbsp<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
                                                     </a>
                                                 </td>
@@ -127,7 +127,7 @@
                                                     </ul>
                                                 </td>
                                                 <td width="30%">
-                                                    <a href="<?php echo site_url('Representative/form_c');?>" style="text-decoration:none">
+                                                    <a href="<?php echo site_url('ExtraCurricular/form_c');?>" style="text-decoration:none">
                                                         <button type="button" class="btn btn-success btn-block btn-lg" disabled>Proceed &nbsp<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
                                                     </a>
                                                 </td>
@@ -139,7 +139,7 @@
                                                     </ul>
                                                 </td>
                                                 <td width="30%">
-                                                    <a href="<?php echo site_url('Representative/form_c');?>" style="text-decoration:none">
+                                                    <a href="<?php echo site_url('ExtraCurricular/form_c');?>" style="text-decoration:none">
                                                         <button type="button" class="btn btn-success btn-block btn-lg" disabled>Proceed &nbsp<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
                                                     </a>
                                                 </td>

@@ -30,7 +30,7 @@
                         <?php foreach($proplist as $proposal) {?>
                             <?php if($proposal->user_fkid == $user_id && $proposal->form_completeness == 0 && is_null($proposal->date_chair_checked) == true) { ?>
                                     <tr>
-                                        <td><a href="<?php echo base_url() ?>/Faculty/loadspecificproposal/<?php echo $proposal->id; ?>"><?php echo $proposal->title;?></a></td>
+                                        <td><a href="<?php echo base_url() ?>/ExtraCurricular/loadspecificproposal/<?php echo $proposal->id; ?>"><?php echo $proposal->title;?></a></td>
                                       
                                         <td><?php echo date('F jS, Y h:i:s a', strtotime($proposal->datetime_created));?>
                                            <!--  <br/>

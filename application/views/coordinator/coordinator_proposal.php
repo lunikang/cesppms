@@ -171,6 +171,7 @@
 						//console.log(proposal_details);
 						var user_id = "<?php echo $user_id; ?>";
 						dataRows.push([
+							"<td>"+dataJSON[i].proposal_id+"</td>",
 							"<td>"+link+proposal_details.title+"</a>"+"</td>",
 							"<td>"+dataJSON[i].datetime_created+"</td>",
 							"<td>Submitted</td>"
