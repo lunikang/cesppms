@@ -822,6 +822,7 @@
                                 <td class="text-left"><label>Confirm Password:</label></td>
                                 <td></td>
                                 <td><input type="password" class="form-control" name="password_confirmation" placeholder="Retype your password" data-validation="confirmation" required><br></td>
+                                <input type="hidden" name="register" value="register"/>
                               </tr>
                               <tr>
                                   <td colspan="3">
