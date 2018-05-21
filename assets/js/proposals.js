@@ -274,16 +274,7 @@ $('input[name="verifdatachoice[]"]').change( function() {
     }
 });
 
-$('input[name="moa"]').change( function() {
-    if ($('#withmoa').is(":checked")) {
-      $('#with_moa').collapse('show');
-      $('#without_moa').collapse('hide');
-    }
-    if ($('#withoutmoa').is(":checked")) {
-      $('#without_moa').collapse('show');
-      $('#with_moa').collapse('hide');      
-    }
-});
+
 
 $('input[name="term"]').change( function() {    
     if ($('#shortterm').is(":checked")) {

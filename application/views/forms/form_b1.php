@@ -825,9 +825,11 @@
                                             <tr>
                                               <td class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                                 <div class="checkbox">
-                                                  <label><input type="checkbox" name="social_dimension[]" id="households" value="households" data-toggle="collapse" data-target="#hh">households</label>
+                                                  <label data-toggle="collapse" data-target="#collapseOne" aria-expanded="false">
+                                                    <input id="nigga" type="checkbox">households
+                                                  </label>
                                                 </div>
-                                                <div id="hh" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 collapse">
+                                                <div id="collapseOne" class="collapse col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                                   <input type="number" class="form-control" name="social_dimension_household" placeholder="How many?">
                                                 </div>
                                               </td>
@@ -1327,11 +1329,12 @@
                                           <tr>
                                             <td class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                               <div class="radio">
-                                                <label><input type="radio"  id="withmoa" name="nature_of_linkage" value="1" data-toggle="collapse" data-target="#with_moa">with Memorandum of Understanding / Memorandum of Agreement</label>
+                                                <label><input type="radio"  id="withmoa" name="moadelatorre" value="1" data-toggle="collapse" data-target="#with_moa">with Memorandum of Understanding / Memorandum of Agreement</label>
                                               </div>
-                                              <div id="with_moa" class="collapse">
+                                              <div id="with_moa" class="nigga collapse">
                                                 <div class="panel">
                                                   <table width="100%">
+
                                                     <tr>
                                                       <td class="text-right"><label>Date Signed:</label></td>
                                                       <td width="2%"></td>
@@ -1367,7 +1370,7 @@
                                             </td>
                                             <td class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                               <div class="radio">
-                                                <label><input type="radio" name="nature_of_linkage" id="withoutmoa"  value="0" data-toggle="collapse" data-target="#without_moa">without Memorandum of Understanding / Memorandum of Agreement</label>
+                                                <label><input type="radio" name="moadelatorre" id="withoutmoa"  value="0" data-toggle="collapse" data-target="#without_moa">without Memorandum of Understanding / Memorandum of Agreement</label>
                                               </div>
                                               <div id="without_moa" class="collapse">
                                                 <div class="panel">
@@ -1413,13 +1416,12 @@
                               </div>
                             </div>
 
-
                            <!--  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" align="center">
                               <button type="submit" class="btn btn-lg btn-success btn-block"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>&nbsp Submit</button> -->
 
                           <!--   <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" align="center">
-                              <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#exit"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp Cancel</button>
+                              <button type="button" claxss="btn btn-danger btn-block" data-toggle="modal" data-target="#exit"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp Cancel</button>
                             </div>
                             <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -1442,7 +1444,7 @@
 
  <!-- Custom Script -->
     <script src="<?php echo base_url();?>assets/js/global.js"></script>
-    <script src="<?php echo base_url();?>assets/js/proposals.js"></script>
+    <script src="<?php echo base_url();?>assets/js/proposalbradio.js"></script>
     <script src="<?php echo base_url();?>assets/js/form_processing.js"></script>            
         
 
