@@ -249,7 +249,7 @@
                                 <table class="table table-bordered" width="100%">
 <!-- _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+ 1st Part -->
                                   <thead>
-                                    <th class="bg-success">A. College/School/Department/Unit Responsible</th>
+                                    <th class="bg-success wawa">A. College/School/Department/Unit Responsible</th>
                                   </thead>
                                   <tbody>
                                     <tr>
@@ -941,35 +941,36 @@
                     <p class="taskDescription">Choose a specific part and type in your comments and suggestions for the proposal</p>
                 </div>
                 <div class="actionBox">
-                        <?php echo form_open('Proposals/save_addComs');?>
+                        <?php echo form_open('Proposals/save_addComs');
+                        ?>
+                        
                           <form class="form-inline" role="form">
                               <div class="form-group">
-                                  
-                                <input type="hidden" name="user_id" value="<?php echo $user_id?>">
-                                <input type="hidden" name="prop_id" value="<?php echo $id?>">
+	                            <input type="hidden" name="user_id" value="<?php echo $user_id?>">
+	                            <input type="hidden" name="prop_id" value="<?php echo $id?>">
                               </div>
                               <div class="form-group">
                               <select class="form-control" NAME="comment_category">
+                              	
                               <option disabled>--Form A--</option>
                               <option value="Rationale and Contextualization">I. Rationale and Contextualization</option>
                               <option value="Goal, Objectives, and Outcomes">II. Goal, Objectives, and Outcomes</option>
                               <option value="Participants, Partners and Beneficiaries">III. Participants, Partners and Beneficiaries</option>
                               <option value="Outline of Activities">IV. Outline of Activities</option>
                               <option value="Budgetary Requirements">V. Budgetary Requirements</option>
-                              <option disabled>--Form B--</option>
-                              <option value="Program/Project/Activity Profile">I. Program/Project/Activity Profile</option>
-                              <option value="Significance/Relevance Matrix">II. Significance/Relevance Matrix</option>
-                              <option value="Implications to Work hours, Academic Program, and Research">III. Implications to Work hours, Academic Program, and Research</option>
-                              <option value="Partnership and Linkage Profile">IV. Partnership and Linkage Profile</option>
+                              <option class = "animal" disabled>--Form B--</option>
+                              <option class = "animal" value="Program/Project/Activity Profile">I. Program/Project/Activity Profile</option>
+                              <option class = "animal" value="Significance/Relevance Matrix">II. Significance/Relevance Matrix</option>
+                              <option class = "animal" value="Implications to Work hours, Academic Program, and Research">III. Implications to Work hours, Academic Program, and Research</option>
+                              <option class = "animal" value="Partnership and Linkage Profile">IV. Partnership and Linkage Profile</option>
                               
-                            </select>
-                            <br>
+                           	 </select>
+                             <br>
                                   <textarea class="form-control boxsize" type="text" placeholder="Your comments" name="commentbox" value="" required></textarea>
                               </div>
                               <div class="form-group">
                                   <button class="btn btn-info" name="commentsubmit" id="commentsubmit">Add</button>
                               </div>
-                         
                       <?php echo form_close();?>
                 </div>
               </div>
@@ -1094,6 +1095,10 @@ $("#btn-linksprof-comment").click(function(){
 	$(this).toggleClass('btn-plus');
 	$("#linksprof_comment").slideToggle();
 }); 
+
+if($(".wawa").length == 0){
+	$(".animal").remove();
+}
     </script>
 
 </body>

@@ -7,7 +7,7 @@
 			<div class="row">
 				<div class="navbar-header">
 					<img src="<?php echo base_url();?>assets/img/usc_white.png" style="height:40px; width:70px">
-					<a href="#" class="navbar-brand"><h3>&nbsp; CES - DMS</h3></a>
+					<a href="#" class="navbar-brand"><h3>&nbsp; CESPPMS</h3></a>
 				</div>
 				<div class="sidebar-toggle">
 					<button type="button" id="menu-toggle" class="btn btn-default" data-target="#menu-toggle" data-toggle="tooltip" data-placement="bottom" title="Toggle Sidebar">

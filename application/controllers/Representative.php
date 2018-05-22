@@ -347,6 +347,8 @@ public function addFormd() {
 		$data['creators_school']	= $this->session->office;
 		$data['user_id'] = $this->session->user_id;
 
+		$data['form_type'] = $this->session->form_type;
+
 		$this->load->model('Proposal_AB');
 		$data["proposal"] = $this->Proposal_AB->getProposalDetails($proposal_id);
 		$data["proposal_id"]= $proposal_id;
