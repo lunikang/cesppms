@@ -91,7 +91,7 @@
 							var link = "<a href="+base_url+"Representative/form_a?proposal_id="+dataJSON[i].proposal_id+">";
 						dataRows.push([
 							"<td>"+link+dataJSON[i].proposal_json_format.title+"</a>"+"</td>",
-							dataJSON[i].proposal_json_format.inclusive_date1+"</td>"
+							dataJSON[i].date_created+"</td>"
 						]);
 						//dataRows.push("<tr>"+"<td>"+dataJSON[i].proposal_json_format.title+"</td>"+"<td>"+dataJSON[i].proposal_json_format.inclusive_date1+"</td>"+"</tr>");
 					}

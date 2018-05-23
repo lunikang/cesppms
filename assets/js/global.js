@@ -243,6 +243,36 @@ $("#form_a").submit(function(e){
 
 });
 
+$("#save").click(function(e){
+  e.preventDefault();
+  //var data = JSON.stringify($('#form_a1').serialize());
+  //var dataJSON=JSON.parse(data);
+  //alert(dataJSON.title);
+
+  var btn = document.activeElement.getAttribute('value');
+  var button_type = "<input type='hidden' name='button_type' value='"+btn+"'/>";
+
+  $("#form_a").append(button_type);
+  console.log($('#form_a').serialize());
+  //console.log(validationProposalFormA1());
+  var error="";
+  
+    $.ajax({
+      type: "POST",
+      url: base_url + "Procedure_one/insertDraftProposal",
+      data:$('#form_a').serialize(),
+      success:function(data){
+        alert(data);
+        //setTimeout(window.location.replace("home"),5000);
+      },
+      error: function(data) {
+        console.log(data);
+      }
+     }).done(function(){
+          console.log("done");
+     });
+
+});
 
 $('#save_edit_profile_settings').submit(function(e) {
     e.preventDefault();
