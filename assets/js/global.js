@@ -182,10 +182,6 @@ $("#form_a1").submit(function(e){
   	 	type: "POST",
   	 	url: base_url + "Procedure_one/insertDraftProposal",
   	 	data:$('#form_a1').serialize(),
-  	 	success:function(data){
-  	 		alert("Successful in creating a proposal");
-  	 		setTimeout(window.location.replace("home"),5000);
-  	 	},
   	 	error: function(data) {
   	 		console.log(data);
   	 	}
@@ -200,6 +196,33 @@ $("#form_a1").submit(function(e){
     $('#success_modal .modal-footer').html('<button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>');
     $('#success_modal').modal('show');
   }
+
+});
+
+$("#save_a1").click(function(e){
+  e.preventDefault();
+  //var data = JSON.stringify($('#form_a1').serialize());
+  //var dataJSON=JSON.parse(data);
+  //alert(dataJSON.title);
+
+  var btn = document.activeElement.getAttribute('value');
+  var button_type = "<input type='hidden' name='button_type' value='"+btn+"'/>";
+
+  $("#form_a1").append(button_type);
+  console.log($('#form_a1').serialize());
+  //console.log(validationProposalFormA1());
+  var error="";
+
+    $.ajax({
+      type: "POST",
+      url: base_url + "Procedure_one/insertDraftProposal",
+      data:$('#form_a1').serialize(),
+      error: function(data) {
+        console.log(data);
+      }
+     }).done(function(){
+          console.log("done");
+     });
 
 });
 
@@ -222,10 +245,6 @@ $("#form_a").submit(function(e){
       type: "POST",
       url: base_url + "Procedure_one/insertDraftProposal",
       data:$('#form_a').serialize(),
-      success:function(data){
-        alert(data);
-        //setTimeout(window.location.replace("home"),5000);
-      },
       error: function(data) {
         console.log(data);
       }
@@ -261,10 +280,6 @@ $("#save").click(function(e){
       type: "POST",
       url: base_url + "Procedure_one/insertDraftProposal",
       data:$('#form_a').serialize(),
-      success:function(data){
-        alert(data);
-        //setTimeout(window.location.replace("home"),5000);
-      },
       error: function(data) {
         console.log(data);
       }

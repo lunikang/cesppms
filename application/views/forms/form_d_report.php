@@ -131,7 +131,7 @@
                          <?php if($role == 'Representative'){ 
                           echo form_open('Representative/viewEditFormd');?>
                         <input class="form-control" type="hidden" name="id" 
-                               value="<?php echo $res->id; ?>">
+                               value="<?php echo $res->proposal_id; ?>">
                        
                          <button type="submit" class="btn btn-warning btn-md btn-block" ><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>&nbsp Edit</button>
                         </form>

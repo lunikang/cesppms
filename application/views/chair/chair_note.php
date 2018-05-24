@@ -77,8 +77,8 @@
 					//console.log(proposal_details);
 					dataRows.push([
 						"<td>"+link+proposal_details.title+"</a>"+"</td>",
-						dataJSON[i].lastname+"</td>",
-						"<td>"+dataJSON[i].datetime_created+"</td>",
+						"<td>"+dataJSON[i].lastname+"</td>",
+						dataJSON[i].datetime_created+"</td>",
 						"<td>"+"To be Noted"+"</td>"
 					]);
 					//dataRows.push("<tr>"+"<td>"+dataJSON[i].proposal_json_format.title+"</td>"+"<td>"+dataJSON[i].proposal_json_format.inclusive_date1+"</td>"+"</tr>");

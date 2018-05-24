@@ -26,7 +26,7 @@ class Reports extends CI_Model
 		//$this->db->where('who_created', '$completename');
 
 		 // $query = $this->db->get_where('who_created =', $completename);
-		$query = $this->db->get();
+		$query = $this->db->get();	
 
 		    if($query->num_rows() > 0) {
 		        $results = $query->result();
@@ -37,7 +37,7 @@ class Reports extends CI_Model
 	}
 
 	function get_title($idsauser) {
- 		 $where = "(status='1' OR status='3' OR status='4' OR status='5' OR status='6' OR status='10' OR status='11' OR status='12')";
+ 		 $where = "(status='12')";
  		 $this->db->where($where);
  		 $this->db->where('user_id', $idsauser);
 
@@ -153,7 +153,7 @@ public function updateform_d(){
     }
 //for FORM D
     public function getOneFormd(){
-        $query=$this->db->get_where('report_d', array('id'=>$this->id));
+        $query=$this->db->get_where('report_d', array('proposal_id'=>$this->id));
         return $query->row_array();
     }
 

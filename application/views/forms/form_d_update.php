@@ -27,7 +27,7 @@
                             <div class="panel" align="center">
                                 <div class="panel-body">
                                     <table width="100%">
-                                        <tr><input type="hidden" name="id" value="<?php echo $result_d['id'];?>">
+                                        <tr><input type="hidden" name="id" value="<?php echo $result_d['proposal_id'];?>">
                                             <td><label>Title:</label></td>
                                             <td colspan="3">
                                               <!-- <select class="form-control" required> -->
