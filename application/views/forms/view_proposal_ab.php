@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CESDMS - View Proposal</title>
+	<title>CESPPMS - View Proposal</title>
 	<?php include('application/views/header.php');?>
 </head>
 <body>

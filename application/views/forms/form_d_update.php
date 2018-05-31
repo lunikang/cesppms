@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>CESDMS - Fill Out Form D</title>
+    <title>CESPPMS - Fill Out Form D</title>
     <?php include('application/views/header.php');?>
 
 </head>
@@ -23,11 +23,11 @@
                     <div>
                         <h1>Filling Out Form D <small>CES Program/Project/Activity Report Form</small></h1>
                         <hr>
-                        <form>
+                         <!-- <form> -->
                             <div class="panel" align="center">
                                 <div class="panel-body">
                                     <table width="100%">
-                                        <tr><input type="hidden" name="id" value="<?php echo $result_d['proposal_id'];?>">
+                                       
                                             <td><label>Title:</label></td>
                                             <td colspan="3">
                                               <!-- <select class="form-control" required> -->
@@ -47,10 +47,13 @@
                                         </tr>
 
                                          <!--   who created and the department of the creator of the report input here -->
-                                       <tr><td> <input type="hidden" name="who_created" value="<?= $fname ?>&nbsp;<?= $lname ?>"></td>
-                                        <td> <input type="hidden" name="creators_department" value="<?= $department ?>"></td>
-                                         <input type="hidden" name="fd_school" value="<?php echo $office;?>">
-                                           <input type="hidden" name="fd_dept" value="<?php echo $department;?>">
+                                       <tr>
+                                        <td> 
+                                          <input type="hidden" name="who_created" value="<?= $fname ?>&nbsp;<?= $lname ?>"></td>
+                                        <td> 
+                                          <input type="hidden" name="creators_department" value="<?= $department ?>"></td>
+                                          <input type="hidden" name="fd_school" value="<?php echo $office;?>">
+                                          <input type="hidden" name="fd_dept" value="<?php echo $department;?>">
                                         <tr>
                                   <!-- END part of the info of creator -->
 
@@ -229,7 +232,9 @@
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" align="center">
-                              <button type="submit" class="btn btn-lg btn-success btn-block"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>&nbsp Submit</button>
+                               <input type="hidden" name="fd_id" value="<?php echo $result_d['fd_id'];?>">
+                               <input type="hidden" name="report_status" value="<?php echo $result_d['report_status'];?>">
+                              <button type="submit" class="btn btn-lg btn-success btn-block"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>&nbsp Save</button>
                              <?php echo form_close();?>
                             </div>
                         </form>
@@ -254,7 +259,7 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" align="center">
-                      <a href="<?php echo base_url() ?>/Representative/reports" style="text-decoration:none">
+                      <a href="<?php echo base_url() ?>index.php/Representative/reports" style="text-decoration:none">
                         <button type="button" class="btn btn-lg btn-success btn-block"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp Yes</button>
                       </a>
                     </div>

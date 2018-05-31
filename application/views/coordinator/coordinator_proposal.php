@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>CESDMS - Home</title>
+    <title>CESPPMS - Home</title>
     <?php include('application/views/header.php');?>
 </head>
 
@@ -76,8 +76,9 @@
 
 			var review_proposal_list = $('#review_proposal_list').dataTable({
 				"pagingType": "full_numbers",  
-			});			
+			});				
 
+			//DISPLAY SA RECOMMENDATION PROPOSAL
 			$.ajax({
 				type: "POST",
 				url: base_url + "Coordinator/getToBeEndorsedProposal",

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>CESDMS - Proposals</title>
+    <title>CESPPMS - Proposals</title>
     <?php include('application/views/header.php');?>
 </head>
 

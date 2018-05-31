@@ -29,7 +29,7 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                   <a href="#">
-                      <img src="<?php echo base_url();?>assets/img/ces_logo_sm.png"> &nbsp; CESDMS
+                      <img src="<?php echo base_url();?>assets/img/ces_logo_sm.png"> &nbsp; CESPPMS
                   </a>
                 </li>
                 <li>

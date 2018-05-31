@@ -8,7 +8,7 @@
                 <li class="sidebar-brand">
                   <h3>
                     <img src="<?php echo base_url();?>assets/img/ces_logo_sm.png">
-                    &nbsp CESDMS
+                    &nbsp CESPPMS
                   </h3>
                 </li>
                 <li>

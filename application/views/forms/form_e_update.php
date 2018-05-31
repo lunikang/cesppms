@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>CESDMS - Form E (Edit Form)</title>
+    <title>CESPPMS - Form E (Edit Form)</title>
     <?php include('application/views/header.php');?>
 
 </head>
@@ -21,7 +21,7 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                   <a href="#">
-                      <img src="<?php echo base_url();?>assets/img/ces_logo_sm.png"> &nbsp; CESDMS
+                      <img src="<?php echo base_url();?>assets/img/ces_logo_sm.png"> &nbsp; CESPPMS
                   </a>
                 </li>
                 <li>
@@ -73,7 +73,7 @@
                                     <table width="100%">
                                       <tr>
                                         <td width="25%"><strong>1.1 Complete Title of Program/Project</strong></td>
-                                        <td width="2%"><input type="hidden" name="id" value="<?php echo $results_e['id'];?>"></td>
+                                        </td>
                                         <td><input type="text" class="form-control" placeholder="Type Here..." name="title_of_program"  value="<?php echo $results_e['title_of_program']; ?>" required><br></td>
                                       </tr>
                                       <tr>
@@ -419,7 +419,8 @@
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" align="center">
-                              <button type="submit" class="btn btn-lg btn-success btn-block"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>&nbsp Submit</button>
+                              <td width="2%"><input type="hidden" name="fe_id" value="<?php echo $results_e['fe_id'];?>">
+                              <button type="submit" class="btn btn-lg btn-success btn-block"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>&nbsp Save</button>
                             
                             <?php echo form_close();?>
                             </div>
@@ -446,7 +447,7 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" align="center">
-                      <a href="<?php echo base_url() ?>/Representative/reports" style="text-decoration:none">
+                      <a href="<?php echo base_url() ?>index.php/Representative/reports" style="text-decoration:none">
                         <button type="button" class="btn btn-lg btn-success btn-block"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp Yes</button>
                       </a>
                     </div>

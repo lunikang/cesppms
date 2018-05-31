@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>CESDMS - My Reports</title>
+    <title>CESPPMS - My Reports</title>
     <?php include('application/views/header.php');?>
 </head>
 
@@ -68,7 +68,7 @@
                         <?php foreach($list_d as $reps) {?>
                             <?php if($reps->creator_id == $user_id) { ?>
                                     <tr>
-                                        <td><a href="<?php echo base_url() ?>index.php/Representative/loadreportd/<?php echo $reps->proposal_id; ?>"><?php echo $reps->fd_title;?></a></td>
+                                        <td><a href="<?php echo base_url() ?>index.php/Representative/loadreportd/<?php echo $reps->fd_id; ?>"><?php echo $reps->fd_title;?></a></td>
                                         <!-- <td><a href="" value="<?php echo $reps->id;?>"><?php echo $reps->fd_title;?></a></td> -->
                                         <td><?php echo $reps->datecreated;?>
                                             <br/>
@@ -82,7 +82,7 @@
                                         <td>
                                          <?php
                                             echo form_open('Representative/deleteForm_d');?>
-                                            <input class="form-control" type="hidden" name="id" value="<?php echo $reps->proposal_id;?>" >
+                                            <input class="form-control" type="hidden" name="id" value="<?php echo $reps->fd_id;?>" >
                                             <button class="btn btn-sm btn-danger" type="submit" name="form_submit" value="DELETE FORM" onclick="return confirm('Are you sure you want to delete this item?')"><span class="glyphicon glyphicon-trash"></button>
                                             </form> </td>
                                     </tr>
@@ -124,14 +124,14 @@
                         <?php foreach($list_e as $elist) {?>
                               <?php if($elist->creator_id == $user_id) { ?>
                                     <tr>
-                                        <td><a href="<?php echo base_url() ?>index.php/Representative/loadreporte/<?php echo $elist->id; ?>"><?php echo $elist->title_of_program;?></a></td>
+                                        <td><a href="<?php echo base_url() ?>index.php/Representative/loadreporte/<?php echo $elist->fe_id; ?>"><?php echo $elist->title_of_program;?></a></td>
                                         <td><?php echo $elist->datecreated;?>
                                              <br/>
                                             <input type="hidden" name="creator_id" value="<?php echo $elist->creator_id ;?>">
                                         </td>
                                         <td><?php
                                             echo form_open('Representative/deleteForm_e');?>
-                                            <input class="form-control" type="hidden" name="id" value="<?php echo $elist->id;?>" >
+                                            <input class="form-control" type="hidden" name="id" value="<?php echo $elist->fe_id;?>" >
                                            <button class="btn btn-sm btn-danger" type="submit" name="form_submit" value="DELETE FORM" onclick="return confirm('Are you sure you want to delete this item?')"><span class="glyphicon glyphicon-trash"></button>
                                             </form> </td>
                                     </tr>

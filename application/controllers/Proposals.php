@@ -560,7 +560,7 @@ public function vpaaApproveProposal(){
         $p= new Proposal_AB();
         $p->id=$this->input->post('id');
        
-
+        					//name sa button like name = "note"
         if($this->input->post('note') == "ReturnProposal") { 
 			$result=$p->chairReturn();
 		} else {
@@ -586,6 +586,128 @@ public function vpaaApproveProposal(){
 				redirect(site_url('Chair/home'), "refresh");
             }
 	}
+
+	public function chairNotesReport(){
+		//usba kay code pani sa send proposal
+		$this->load->model('Proposal_AB');
+        $p= new Proposal_AB();
+        $p->reportd_id=$this->input->post('reportd_id');
+
+     	if($this->input->post('notereport') == "ProceedReport") { 
+		$result=$p->noteReport($p->reportd_id);
+		}
+        
+            if(!$result){ 
+                $this->session->set_flashdata('error_msg',
+					'<strong>Something Happened!</strong> An error occured while saving your changes.');
+
+				redirect(site_url('Chair/reports'), "refresh");
+            }
+            else{
+				if($this->input->post('note') == "ReturnProposal")
+				{
+					// $this->session->set_flashdata('success_msg',
+					// '<strong>Report Has Been Returned!</strong> You have successfully returned a proposal.');
+				}
+            	else {
+					$this->session->set_flashdata('success_msg',
+					'<strong>Report Has Been Sent!</strong> You have successfully sent a report.');
+				}
+				redirect(site_url('Chair/reports'), "refresh");
+            }
+	}
+
+	public function coordNotesReport(){
+		//usba kay code pani sa send proposal
+		$this->load->model('Proposal_AB');
+        $p= new Proposal_AB();
+        $p->reportd_id=$this->input->post('reportd_id');
+
+     	if($this->input->post('notereport') == "ProceedReport") { 
+		$result=$p->coordNoteReport($p->reportd_id);
+		}
+        
+            if(!$result){ 
+                $this->session->set_flashdata('error_msg',
+					'<strong>Something Happened!</strong> An error occured while saving your changes.');
+
+				redirect(site_url('Coordinator/reports'), "refresh");
+            }
+            else{
+				if($this->input->post('note') == "ReturnProposal")
+				{
+					// $this->session->set_flashdata('success_msg',
+					// '<strong>Report Has Been Returned!</strong> You have successfully returned a proposal.');
+				}
+            	else {
+					$this->session->set_flashdata('success_msg',
+					'<strong>Report Has Been Sent!</strong> You have successfully sent a report.');
+				}
+				redirect(site_url('Coordinator/reports'), "refresh");
+            }
+	}
+
+	public function deanNotesReport(){
+		//usba kay code pani sa send proposal
+		$this->load->model('Proposal_AB');
+        $p= new Proposal_AB();
+        $p->reportd_id=$this->input->post('reportd_id');
+
+     	if($this->input->post('notereport') == "ProceedReport") { 
+		$result=$p->deanNoteReport($p->reportd_id);
+		}
+        
+            if(!$result){ 
+                $this->session->set_flashdata('error_msg',
+					'<strong>Something Happened!</strong> An error occured while saving your changes.');
+
+				redirect(site_url('Coordinator/reports'), "refresh");
+            }
+            else{
+				if($this->input->post('note') == "ReturnProposal")
+				{
+					// $this->session->set_flashdata('success_msg',
+					// '<strong>Report Has Been Returned!</strong> You have successfully returned a proposal.');
+				}
+            	else {
+					$this->session->set_flashdata('success_msg',
+					'<strong>Report Has Been Sent!</strong> You have successfully sent a report.');
+				}
+				redirect(site_url('Dean/reports'), "refresh");
+            }
+	}
+
+	public function adminNotesReport(){
+		//usba kay code pani sa send proposal
+		$this->load->model('Proposal_AB');
+        $p= new Proposal_AB();
+        $p->reportd_id=$this->input->post('reportd_id');
+
+     	if($this->input->post('notereport') == "ProceedReport") { 
+		$result=$p->adminNoteReport($p->reportd_id);
+		}
+        
+            if(!$result){ 
+                $this->session->set_flashdata('error_msg',
+					'<strong>Something Happened!</strong> An error occured while saving your changes.');
+
+				redirect(site_url('Director/other_reports'), "refresh");
+            }
+            else{
+				if($this->input->post('note') == "ReturnProposal")
+				{
+					// $this->session->set_flashdata('success_msg',
+					// '<strong>Report Has Been Returned!</strong> You have successfully returned a proposal.');
+				}
+            	else {
+					$this->session->set_flashdata('success_msg',
+					'<strong>Report Has Been Sent!</strong> You have successfully sent a report.');
+				}
+				redirect(site_url('Director/other_reports'), "refresh");
+            }
+	}
+
+
 
 	public function coordRecommendsProp(){
 		$this->load->model('Proposal_AB');
@@ -614,7 +736,7 @@ public function vpaaApproveProposal(){
 					$this->session->set_flashdata('success_msg',
 					'<strong>Proposal Has Been Recommended to Dean!</strong> You have successfully noted a proposal.');
 				}
-				redirect(site_url('Chair/home'), "refresh");
+				redirect(site_url('Coordinator/home'), "refresh");
             }
 	}
 

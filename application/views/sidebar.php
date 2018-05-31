@@ -122,6 +122,12 @@
                         &nbsp;&nbsp;&nbsp; Proposals
                     </a>
                 </li>
+                 <li>
+                    <a href="<?php echo site_url('Chair/reports');?>">
+                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                        &nbsp;&nbsp;&nbsp; Reports
+                    </a>
+                </li>
                 <li>
                     <a href="<?php echo site_url('Chair/profile_settings');?>">
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
@@ -137,6 +143,12 @@
                     <a href="<?php echo site_url('Dean/home');?>">
                         <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
                         &nbsp;&nbsp;&nbsp; Proposals
+                    </a>
+                </li>
+                 <li>
+                    <a href="<?php echo site_url('Dean/reports');?>">
+                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                        &nbsp;&nbsp;&nbsp; Reports
                     </a>
                 </li>
                 <li>
@@ -192,6 +204,12 @@
                     <a href="<?php echo site_url('Vpaa/home');?>">
                         <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
                         &nbsp;&nbsp;&nbsp; Proposals
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo site_url('Vpaa/reports');?>">
+                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                        &nbsp;&nbsp;&nbsp; Reports
                     </a>
                 </li>
                 <li>

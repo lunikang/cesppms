@@ -86,12 +86,7 @@ class Users extends CI_Controller
 		    } 
 
 		    if ($check === FALSE) {
-		      ?>
-		      <script>alert ("Username or Password is Invalid");
-		      </script>
-
-		      <?php
-
+		    	?><script>alert("Invalid username or password");</script><?php
 		      redirect('', 'refresh');
 		    }
 		  

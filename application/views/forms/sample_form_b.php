@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>CESDMS - Form A and B</title>
+    <title>CESPPMS - Form A and B</title>
     <?php include('application/views/header.php');?>
 </head>
 
@@ -978,6 +978,8 @@
 			  
         <?php }?>
     </div><!--  wrapper -->
+
+    
  <div style="position:fixed; top:8%; right:2%; ">
  <?php if($role == "Department Chair") { ?>
     <div style="float:left; padding:2px; padding-top:10px;">

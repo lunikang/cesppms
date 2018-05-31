@@ -456,11 +456,55 @@ public function decisionApprove(){
 		return TRUE;
     }
 
+    public function noteReport($fd_id){
+
+        $data = array(
+                        'report_status'=>'4',
+                    );
+
+        $this->db->where('fd_id', $fd_id);
+        $this->db->update('report_d', $data); 
+        return TRUE;
+    }
+
+    public function coordNoteReport($fd_id){
+
+        $data = array(
+                        'report_status'=>'5',
+                    );
+
+        $this->db->where('fd_id', $fd_id);
+        $this->db->update('report_d', $data); 
+        return TRUE;
+    }
+
+     public function deanNoteReport($fd_id){
+
+        $data = array(
+                        'report_status'=>'6',
+                    );
+
+        $this->db->where('fd_id', $fd_id);
+        $this->db->update('report_d', $data); 
+        return TRUE;
+    }
+
+    public function adminNoteReport($fd_id){
+
+        $data = array(
+                        'report_status'=>'7',
+                    );
+
+        $this->db->where('fd_id', $fd_id);
+        $this->db->update('report_d', $data); 
+        return TRUE;
+    }
+
     public function chairReturn(){
 		$data = array(
 						'status'=>'2',
 						'noted_by_stat'=>'0'
-					);
+					); 
 
 		$this->db->where('proposal_id', $this->id);
 		$this->db->update('proposal_json', $data);
@@ -1044,6 +1088,22 @@ public function decisionApprove(){
 		{
 			$results = $query->result();
 		}
+        return $results;
+    }
+
+    public function LoadReportECoordinator($office){
+        $results = array();
+    
+        $this->db->select('*');
+
+        $this->db->from('report_d');
+        $this->db->where('report_status','3');
+        $this->db->where('fd_school',$office);
+        $query = $this->db->get();
+        if($query->num_rows() > 0)
+        {
+            $results = $query->result();
+        }
         return $results;
     }
 

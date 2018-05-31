@@ -182,6 +182,10 @@ $("#form_a1").submit(function(e){
   	 	type: "POST",
   	 	url: base_url + "Procedure_one/insertDraftProposal",
   	 	data:$('#form_a1').serialize(),
+        success:function(data){
+        alert("Successful in creating a PPA Form");
+        setTimeout(window.location.replace("home"),5000);
+      },
   	 	error: function(data) {
   	 		console.log(data);
   	 	}
@@ -245,6 +249,10 @@ $("#form_a").submit(function(e){
       type: "POST",
       url: base_url + "Procedure_one/insertDraftProposal",
       data:$('#form_a').serialize(),
+      success:function(data){
+        alert("Successful in creating a PPA Form");
+        setTimeout(window.location.replace("home"),5000);
+      },
       error: function(data) {
         console.log(data);
       }
@@ -280,6 +288,10 @@ $("#save").click(function(e){
       type: "POST",
       url: base_url + "Procedure_one/insertDraftProposal",
       data:$('#form_a').serialize(),
+      // success:function(data){
+      //   alert("Successful in creating a PPA Draft");
+      //   setTimeout(window.location.replace("home"),5000);
+      // },
       error: function(data) {
         console.log(data);
       }
@@ -311,7 +323,7 @@ $('#save_edit_profile_settings').submit(function(e) {
       }
     }).done(function(){
        console.log("done");
-    });
+    }); 
 });
 // Manage accounts processes and buttons
 $('#edit_profile').submit(function(e) {

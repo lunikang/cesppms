@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>CESDMS - Fill Out Form A</title>
+    <title>CESPPMS - Fill Out Form A</title>
     <?php include('application/views/header.php');?>
 </head>
 
@@ -108,7 +108,7 @@
                             </div>
                             <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" align="center">
-                              <button type="submit" class="btn btn-success btn-block" id="submit" name="submit" data-toggle="modal" data-target="#createproposal" value="submit_prop" onsubmit = "window.location='<?php echo base_url(); ?>index.php/Representative/send'"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>&nbsp Submit</button>
+                              <button type="submit" class="btn btn-success btn-block" id="submit" name="submit" value="submit_prop"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>&nbsp Submit</button>
                             </div>
                         <?php echo form_close();?>
                     </div>

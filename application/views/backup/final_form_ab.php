@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>CESDMS - Form A and B</title>
+    <title>CESPPMS - Form A and B</title>
     <?php include('application/views/header.php');?>
 </head>
 

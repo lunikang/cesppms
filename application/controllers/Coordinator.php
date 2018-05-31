@@ -32,6 +32,44 @@ class Coordinator extends CI_Controller
 		}
 	}
 
+
+
+	public function reports() {
+		if(isset($_SESSION['designation']) && $_SESSION['designation_fkid'] == 5)
+		{
+			$data['fname'] 	= $this->session->firstname;
+			$data['lname'] 	= $this->session->lastname;
+			$data['role']	= $this->session->designation;
+			$data['user_id'] = $this->session->user_id;
+			$data['office']	= $this->session->office;
+
+			$this->load->model('Reports');
+
+			$data['coord_d']=$this->Reports->LoadReport_dCOORD($data['office']);
+			$data['coord_e']=$this->Reports->LoadReport_e();
+
+			$this->load->view('coordinator/coordinator_report', $data);
+		}else{
+			redirect(site_url());
+		}
+	}
+
+	public function loadreportd(){
+		$reportd_id= $this->uri->segment(3);
+		$data["id"] = $this->uri->segment(3);
+		$data['fname'] = $this->session->firstname;
+		$data['lname'] = $this->session->lastname;
+		$data['role']	= $this->session->designation;
+		$data['department']	= $this->session->department;
+		$data['creators_school']	= $this->session->office;
+
+		$this->load->model('Reports');
+
+		$data['reps']=$this->Reports->viewReport_d($reportd_id);
+		
+		$this->load->view("forms/form_d_report", $data);
+	}
+
 	public function addScores(){
 		$this->load->model('Proposal_AB');
         $p= new Proposal_AB();
@@ -73,26 +111,6 @@ class Coordinator extends CI_Controller
             }
 			
 		}
-
-
-	public function reports() {
-		if(isset($_SESSION['designation']) && $_SESSION['designation_fkid'] == 5)
-		{
-			$data['fname'] 	= $this->session->firstname;
-			$data['lname'] 	= $this->session->lastname;
-			$data['role']	= $this->session->designation;
-			$data['user_id'] = $this->session->user_id;
-			$data['department']	= $this->session->department;
-
-			$this->load->model('Reports');
-			$data['own_reports_d']=$this->Reports->LoadReport_d();
-			$data['own_reports_e']=$this->Reports->LoadReport_e();
-
-			$this->load->view('coordinator/coordinator_report', $data);
-		}else{
-			redirect(site_url());
-		}
-	}
 
 	public function settings() {
 		$data['fname'] 	= $this->session->firstname;
@@ -230,6 +248,15 @@ class Coordinator extends CI_Controller
 	{
 		$this->load->model('Proposal_AB');
 		$proplist=$this->Proposal_AB->LoadProposalsCoordinator($this->session->office); 
+		//echo $this->session->office;
+		echo json_encode($proplist);
+	}
+
+	public function getToBeEndorsedReport_E()
+	{
+		$this->load->model('Proposal_AB');
+		$proplist=$this->Proposal_AB->LoadReportECoordinator($this->session->office); 
+		echo ($this->session->office);
 		//echo $this->session->office;
 		echo json_encode($proplist);
 	}

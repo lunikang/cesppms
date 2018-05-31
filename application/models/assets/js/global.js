@@ -183,7 +183,7 @@ $("#form_a1").submit(function(e){
   	 	url: base_url + "Procedure_one/insertDraftProposal",
   	 	data:$('#form_a1').serialize(),
   	 	success:function(data){
-  	 		alert("Successful in creating a proposal");
+  	 		alert("Successful in creating a proposal123");
   	 		setTimeout(window.location.replace("home"),5000);
   	 	},
   	 	error: function(data) {
@@ -219,6 +219,10 @@ $('#save_edit_profile_settings').submit(function(e) {
               <strong>Edited Profile!</strong> You have successfully edited your user profile.</div>');
         $('#success_modal .modal-footer').html('<button type="button" class="btn btn-primary" data-dismiss="modal">Okay</button>');
         $('#success_modal').modal('show');
+      },
+      success:function(data){
+        alert("Successful in editing user profile");
+        setTimeout(window.location.replace("home"),5000);
       },
       error: function(data) {
         console.log(data);

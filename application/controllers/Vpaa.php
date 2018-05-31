@@ -26,6 +26,45 @@ class Vpaa extends CI_Controller
 		}
 	}
 
+	public function reports() {
+		if(isset($_SESSION['designation']) && $_SESSION['designation_fkid'] == 1)
+		{
+
+			$data['fname'] 	= $this->session->firstname;
+			$data['lname'] 	= $this->session->lastname;
+			$data['role']	= $this->session->designation;
+			$data['department']	= $this->session->department;
+			$data['user_id'] = $this->session->user_id;
+
+
+			$this->load->model('Reports');
+
+
+			$data['reportlist_d']=$this->Reports->LoadReport_dVPAA($data['department']);
+			$data['reportlist_e']=$this->Reports->LoadReport_e();
+
+			$this->load->view('vpaa/vpaa_report', $data);
+		}else{
+			redirect(site_url());
+		}
+	}
+
+	public function loadreportd(){
+		$reportd_id= $this->uri->segment(3);
+		$data["id"] = $this->uri->segment(3);
+		$data['fname'] = $this->session->firstname;
+		$data['lname'] = $this->session->lastname;
+		$data['role']	= $this->session->designation;
+		$data['office']	= $this->session->office;
+		$data['creators_school']	= $this->session->office;
+
+		$this->load->model('Reports');
+
+		$data['reps']=$this->Reports->viewReport_d($reportd_id);
+		
+		$this->load->view("forms/form_d_report", $data);
+	}
+
 	public function profile_settings() {
 		if(isset($_SESSION['designation']) && $_SESSION['designation_fkid'] == 1 )
 		{

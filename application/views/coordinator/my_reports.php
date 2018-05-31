@@ -38,14 +38,14 @@
                         </tr>
                     </tfoot>
                     <tbody> 
-                        <?php if(empty($own_reports_d)) {?>
+                        <?php if(empty($coord_d)) {?>
                             <tr>
                                 <td class="text-center" colspan="4"><em>--- No Created Reports ---</em></td>
                             </tr>
                         <?php } ?>
 
 
-                        <?php foreach($own_reports_d as $myreps_d) {?>
+                        <?php foreach($coord_d as $myreps_d) {?>
                             <?php if($myreps_d->creator_id == $user_id) { ?>
                                     <tr>
                                         <td><a href="<?php echo base_url() ?>/Representative/loadreportd/<?php echo $myreps_d->id; ?>"><?php echo $myreps_d->fd_title;?></a></td>

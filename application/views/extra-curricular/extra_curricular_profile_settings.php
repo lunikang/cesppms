@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>CESDMS - Your Profile Settings</title>
+    <title>CESPPMS - Your Profile Settings</title>
     <?php include('application/views/header.php');?>
 </head>
 

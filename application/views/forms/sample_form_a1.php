@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>CESDMS - Form A</title>
+<title>CESPPMS - Form A</title>
     <?php include('application/views/header.php');?>
 </head>
 
@@ -21,7 +21,7 @@
 
                    <div id="printArea">
                     <div>
-                        <h1>USC-CES FORM A <small>CES Program/Project/Activity Proposal (<u>Concept Note</u>)</small></h1>
+                        <h1>USC-CES FORM A <small>CES Program/Project/Activity Proposal1 (<u>Concept Note</u>)</small></h1>
                         <hr>
 
 <?php $resultreviewer= count($validate_prop);?>

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>CESDMS - Fill Out Form B</title>
+    <title>CESPPMS - Fill Out Form B</title>
     <?php include('application/views/header.php');?>
 </head>
 

@@ -30,6 +30,26 @@ class Dean extends CI_Controller
 		}
 	}
 
+	public function reports() {
+		if(isset($_SESSION['designation']) && $_SESSION['designation_fkid'] == 3)
+		{
+			$data['fname'] 	= $this->session->firstname;
+			$data['lname'] 	= $this->session->lastname;
+			$data['role']	= $this->session->designation;
+			$data['user_id'] = $this->session->user_id;
+			$data['office']	= $this->session->office;
+
+			$this->load->model('Reports');
+
+			$data['coord_d']=$this->Reports->LoadReport_dDEAN($data['office']);
+			$data['coord_e']=$this->Reports->LoadReport_e();
+
+			$this->load->view('coordinator/coordinator_report', $data);
+		}else{
+			redirect(site_url());
+		}
+	}
+
 	public function profile_settings() {
 		if(isset($_SESSION['designation']) && $_SESSION['designation_fkid'] == 3)
 		{

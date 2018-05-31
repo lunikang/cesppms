@@ -107,6 +107,7 @@ class Representative extends CI_Controller
 			$data['fname'] 	= $this->session->firstname;
 			$data['lname'] 	= $this->session->lastname;
 			$data['role']	= $this->session->designation;
+			$data['department']	= $this->session->department;
 			$data['user_id']	= $this->session->user_id;
 
 
@@ -283,7 +284,6 @@ public function addFormd() {
 			$data['fname'] = $this->session->firstname;
 			$data['lname'] = $this->session->lastname;
 			$data['department'] = $this->session->department;
-			
 			$data['creator_id'] = $this->session->user_id;
 
 
@@ -296,10 +296,12 @@ public function addFormd() {
 			$this->load->model('Proposal_AB');
 			$p = new Reports();
 
-			$p->proposal_id=$this->input->post('id'); // para sa TITLE
+			$p->fd_id=$this->input->post('id'); // para sa TITLE
 			$p->fd_school=$this->input->post('fd_school'); // para sa SCHOOL
 			$p->fd_dept=$this->input->post('fd_dept'); // para sa DEPARTMENT
 			$p->fd_venue=$this->input->post('fd_venue'); // para sa VENUE
+
+			$p->report_status = 3;
 
 			$p->date_start=$this->input->post('act_duration1'); //INCLUSIVE DATE START
 			$p->date_end=$this->input->post('act_duration2'); //INCLUSIVE DATE END!
@@ -315,7 +317,7 @@ public function addFormd() {
 			$p->creators_department=$this->input->post('creators_department');
 			$p->creator_id=$this->input->post('creator_id');
 			$p->creators_school=$this->input->post('creators_school');
-			$specprop = $this->Proposal_AB->getProposalDetails($p->proposal_id);
+			$specprop = $this->Proposal_AB->getProposalDetails($p->fd_id);
 			$proposal_json_format = (object)json_decode($specprop[0]->proposal_json_format);
 			$p->fd_title = $proposal_json_format->title;
 			//echo "<br/>".$p->fd_title;
@@ -344,7 +346,7 @@ public function addFormd() {
 		$data['lname'] = $this->session->lastname;
 		$data['role']	= $this->session->designation;
 		$data['department']	= $this->session->department;
-		$data['creators_school']	= $this->session->office;
+		$data['creators_school'] = $this->session->office;
 		$data['user_id'] = $this->session->user_id;
 
 		$data['form_type'] = $this->session->form_type;
@@ -555,7 +557,7 @@ public function addFormd() {
 			$this->load->model('Reports');
 			$p= new Reports();
 
-        	$p->id=$this->input->post('id');
+        	$p->fe_id=$this->input->post('fe_id');
         	$p->title_of_program=$this->input->post('title_of_program');
 			$p->unit_responsible=$this->input->post('unit_responsible');
 			$p->program_duration=$this->input->post('program_duration');
@@ -626,13 +628,12 @@ public function addFormd() {
 			// $this->template->show('title', $datum);
 
 			$p = new Reports();
-			$p->id=$this->input->post('id');
-
+			$p->fd_id=$this->input->post('fd_id');
 			$p->fd_title=$this->input->post('fd_title'); // para sa TITLE
 			$p->fd_school=$this->input->post('fd_school'); // para sa SCHOOL
 			$p->fd_dept=$this->input->post('fd_dept'); // para sa DEPARTMENT
 			$p->fd_venue=$this->input->post('fd_venue'); // para sa VENUE
-
+			$p->report_status=$this->input->post('report_status');
 			$p->date_start=$this->input->post('date_start'); //INCLUSIVE DATE START
 			$p->date_end=$this->input->post('date_end'); //INCLUSIVE DATE END!
 			$p->introduction=$this->input->post('introduction');
@@ -654,6 +655,7 @@ public function addFormd() {
 				redirect(site_url('Representative/reports'), "refresh");
         }
         else{
+        	 /* ?><script>alert("POTANGINAMO BOBO");</script><?php*/
              $this->session->set_flashdata('success_msg',
 					'<strong>Report Updated!</strong> You have successfully updated Report D.');
 				
@@ -762,8 +764,8 @@ public function addFormd() {
 			$this->load->model('Proposal');
 			$proposal = new Proposal;
 
-			$proposal_id = $this->encryption->decrypt($form_data['proposal']);
-			$proposal->proposal_header_id 	= $proposal_id;
+			$fd_id = $this->encryption->decrypt($form_data['proposal']);
+			$proposal->proposal_header_id 	= $fd_id;
 			$proposal->form_type 			= $form_data['form_type'];
 
 			$data['fname'] 		= $this->session->firstname;

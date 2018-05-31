@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>CESDMS - Review Scores</title>
+    <title>CESPPMS - Review Scores</title>
     <?php include('application/views/header.php');?>
 </head>
 

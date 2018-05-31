@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>CESDMS - My Reports</title>
+    <title>CESPPMS - My Reports</title>
     <?php include 'application/views/header.php';?>
 </head>
 
@@ -59,7 +59,7 @@
                                         <td><?php echo $reps->datecreated;?></td>
                                         <td><?php
                                             echo form_open('Representative/deleteForm_e');?>
-                                            <input class="form-control" type="hidden" name="id" value="<?php echo $reps->id;?>" >
+                                            <input class="form-control" type="hidden" name="id" value="<?php echo $reps->proposid;?>" >
                                             <input class="form-control" type="submit" name="form_submit" value="DELETE FORM" onclick="return confirm('Are you sure you want to delete this item?')">
                                             </form> </td>
                                     </tr>

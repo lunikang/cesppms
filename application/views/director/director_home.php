@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>CES-DMS - Home</title>
+    <title>CESPPMS - Home</title>
     <?php include('application/views/header.php'); ?>
 </head>
 
