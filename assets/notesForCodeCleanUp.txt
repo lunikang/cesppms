@@ -1,2 +1,0 @@
-Functions to remove in Procedure_one controller:
-addForm_A_and_B()
